@@ -1,3 +1,9 @@
+body{
+  background: url(../../../corporate-wallpapers_597871350.png);
+  background-repeat: no-repeat;
+  background-position: fixed;
+  background-size: cover;
+}
 .all{
     padding-left: 40%;
     padding-top: 5%;
@@ -57,5 +63,8 @@ padding-top: 2%;
     line-height: 24px;
     color: #ffffff;
   }
+  /* matInput{
+    margin-left: 240px;
+  } */
 
   
