@@ -1,21 +1,34 @@
 <mat-sidenav-container class = "tp-container">
    <mat-sidenav mode = "side" opened>
       <section class = "tp-section">
-        <span><img src="../../assets/images/Path_200.png"></span>
+          <div class ="image">
+        <img src="../../assets/images/Path_200.png">
+    </div>
       </section>
+      <div class ="navmenu">
+       <a href=#>
       <section class = "tp-section">
-         <span><mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
-            Home</span>
+            <mat-icon>home</mat-icon><span> Home</span>
       </section>
+    </a>   
+    <a href="#">
       <section class = "tp-section">
-         <span>Inbox</span>
+            <mat-icon> mail_outline</mat-icon><span>	Inbox</span>
       </section>
+    </a>
+    <a href=#>
       <section class = "tp-section">
-        <span>Startups</span>
+            <mat-icon>supervisor_account</mat-icon><span>Startups</span>
      </section>
+    </a> 
+    <a href=#>
      <section class = "tp-section">
-        <span>Explore</span>
+            <mat-icon>explore</mat-icon> <span>Explore</span>
      </section>
+    </a>  
+    </div>
    </mat-sidenav>
-   <mat-sidenav-content><app-startup-page></app-startup-page></mat-sidenav-content>
+   <mat-sidenav-content>
+     <app-topbar></app-topbar>
+    </mat-sidenav-content>
 </mat-sidenav-container>
