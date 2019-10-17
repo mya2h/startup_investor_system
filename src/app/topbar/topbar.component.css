@@ -16,5 +16,11 @@ opacity: 0.4;
 .example-header-image {
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
+    border-radius: 23px;
+    /* background-color: #e6eaee;
+    margin-left: 32%; */
     
+  }
+  .gapd{
+      margin-left: 32px;
   }

@@ -1,0 +1,40 @@
+
+        <div class="all">
+        <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>
+                <div class="size">
+                Registration Form
+              </div>
+              </mat-card-title>
+            </mat-card-header>
+            
+                <div class="example-container">
+                    <label><mat-icon class="ic1">perm_identity</mat-icon> </label><span class="g"></span>
+                    <mat-form-field>
+                         <input matInput placeholder="UserName">
+                    </mat-form-field>
+                  <br>
+                  <label> <mat-icon class="ic2">https</mat-icon>  </label><span class="g"></span>
+                    <mat-form-field>
+                        <input matInput placeholder="Password">
+                    </mat-form-field>
+                    <div class ="inp">
+                    <mat-form-field>
+                             <input matInput placeholder="Confirm Password">
+                          
+                        </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="as">
+                  <mat-form-field>
+                     
+                        <mat-select [(value)]="selected">
+                          <mat-option value="option1">StartUp</mat-option>
+                          <mat-option value="option2">Investor</mat-option>
+                        </mat-select>
+                 
+                      </mat-form-field>
+                    </div>
+          </mat-card>
+        </div>

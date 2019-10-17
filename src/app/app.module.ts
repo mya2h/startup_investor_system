@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatInputModule, MatBadgeModule,MatCardModule,MatButtonModule, MatSelectModule,MatMenuModule,MatSidenavModule, MatIconModule,MatToolbarModule } from '@angular/material';
+import { MatInputModule,MatRadioModule,MatStepperModule,MatCheckboxModule,MatListModule, MatBadgeModule,MatCardModule,MatButtonModule,MatGridListModule, MatSelectModule,MatMenuModule,MatSidenavModule, MatIconModule,MatToolbarModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,12 @@ import { HomeIComponent } from './invest/home-i/home-i.component';
 import { InboxIComponent } from './invest/inbox-i/inbox-i.component';
 import { ExploreIComponent } from './invest/explore-i/explore-i.component';
 import { NavIComponent } from './invest/nav-i/nav-i.component';
+import { ForgetPasswordComponent } from './auth/forget-password/forget-password.component';
+import { VarifyCodeComponent } from './auth/varify-code/varify-code.component';
+import { Form1Component } from './auth/investor/form1/form1.component';
+import { Form2Component } from './auth/investor/form2/form2.component';
+import { Form3Component } from './auth/investor/form3/form3.component';
+import { Form4Component } from './auth/investor/form4/form4.component';
 
 
 @NgModule({
@@ -38,7 +45,13 @@ import { NavIComponent } from './invest/nav-i/nav-i.component';
     HomeIComponent,
     InboxIComponent,
     ExploreIComponent,
-    NavIComponent
+    NavIComponent,
+    ForgetPasswordComponent,
+    VarifyCodeComponent,
+    Form1Component,
+    Form2Component,
+    Form3Component,
+    Form4Component
    
   ],
   imports: [
@@ -46,12 +59,18 @@ import { NavIComponent } from './invest/nav-i/nav-i.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule, 
+    ReactiveFormsModule,
     MatBadgeModule,  
     MatCardModule, 
-    MatInputModule, 
+    MatInputModule,
+    MatStepperModule, 
+    MatRadioModule,
     MatButtonModule,
+    MatListModule,
     MatSelectModule,
     MatToolbarModule,
+    MatCheckboxModule,
+    MatGridListModule,
     MatIconModule,
     MatMenuModule,
     MatFormFieldModule,
