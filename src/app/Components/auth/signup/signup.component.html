@@ -1,0 +1,59 @@
+
+<div class="logo">
+    <img src="../../../assets/images/Path_200.png">
+        </div>
+        <div class="all">
+        <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>
+                <div class="size">
+                Register Here
+              </div>
+              </mat-card-title>
+            </mat-card-header>
+            
+                <div class="example-container">
+                    <label><mat-icon class="ic1">perm_identity</mat-icon> </label><span class="g"></span>
+                    <mat-form-field>
+                         <input  matInput placeholder="First Name" #firstName formControlName="firstName">
+                    </mat-form-field>
+                  <br>
+                  <label><mat-icon class="ic1">perm_identity</mat-icon> </label><span class="g"></span>
+                  <mat-form-field>
+                       <input  matInput placeholder="Last Name" #lastName>
+                  </mat-form-field>
+                <br>
+                  <label><mat-icon class="ic1">mail</mat-icon> </label><span class="g"></span>
+                  <mat-form-field>
+                       <input  matInput placeholder="Email" #email>
+                  </mat-form-field>
+                <br>
+                <label><mat-icon class="ic1">call</mat-icon> </label><span class="g"></span>
+                <mat-form-field>
+                     <input  matInput placeholder="Phone" #phone>
+                </mat-form-field>
+              <br>
+                  <label> <mat-icon class="ic2">lock</mat-icon>  </label><span class="g"></span>
+                    <mat-form-field>
+                        <input matInput type="password" placeholder="Password" #password>
+                    </mat-form-field>
+                    <br>
+                    <label> <mat-icon class="ic2">lock</mat-icon>  </label><span class="g"></span>
+                    <mat-form-field>
+                        <input matInput type="password" placeholder="Confirm Password">
+                    </mat-form-field>
+                    <br>
+                    <label> <mat-icon class="ic2">drag_handle</mat-icon>  </label><span class="g"></span><mat-form-field>
+                     
+                        <mat-select #role [(value)]="selected" >
+                          <mat-option value="startup">StartUp</mat-option>
+                          <mat-option value="investor">Investor</mat-option>
+                        </mat-select>
+                
+                      </mat-form-field>
+                    <button class="signup" mat-button id="signup" (click)="signup(firstName.value,lastName.value,email.value,phone.value,password.value,selected)">SIGNUP</button>
+
+                  </div>
+                  <!-- signup -->
+          </mat-card>
+        </div>

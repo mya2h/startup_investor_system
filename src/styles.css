@@ -1,11 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-/* html{
-    background: url(corporate-wallpapers_597871350.png);
-    background-repeat: no-repeat;
-    background-position: fixed;
-    background-size: cover;
-} */
-
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

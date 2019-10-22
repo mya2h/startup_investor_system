@@ -1,0 +1,48 @@
+<mat-sidenav-container class = "tp-container">
+    <mat-sidenav mode = "side" opened>
+       <section class = "tp-section">
+           <div class ="image">
+         <img src="../../assets/images/Path_200.png">
+     </div>
+       </section>
+       <div class ="navmenu">
+        <a href=#>
+       <section class = "tp-section">
+             <mat-icon>home</mat-icon><span> Home</span>
+       </section>
+     </a>   
+     <a href="#">
+       <section class = "tp-section">
+             <mat-icon> mail_outline</mat-icon><span>	Inbox</span>
+       </section>
+     </a>
+     <a href=#>
+       <section class = "tp-section">
+             <mat-icon>supervisor_account</mat-icon><span>Startups</span>
+      </section>
+     </a> 
+     <a href=#>
+      <section class = "tp-section">
+             <mat-icon>explore</mat-icon> <span>Explore</span>
+      </section>
+     </a>  
+     </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar class="toolbar">
+            <mat-toolbar-row>
+              <span>
+                  
+                  <mat-icon class="small">search</mat-icon>  
+                    <mat-form-field class="inp">
+                       <input  matInput placeholder="search">  
+                </mat-form-field>
+               </span>
+            </mat-toolbar-row>
+          </mat-toolbar>
+          <div class="changed">
+              <app-investor-profile></app-investor-profile>
+          </div>
+          
+     </mat-sidenav-content>
+ </mat-sidenav-container>

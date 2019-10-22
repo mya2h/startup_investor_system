@@ -1,0 +1,103 @@
+<div class="all">
+        <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>
+                <div class="size">
+                Registration Form
+              </div>
+              </mat-card-title>
+            </mat-card-header>
+            <div class="si">
+            <mat-radio-group aria-label="Select an option">
+                    <mat-radio-button value="1">Company</mat-radio-button>
+                    <mat-radio-button value="2">Individual</mat-radio-button>
+                    <mat-radio-button value="3">Other</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+                <div class="example-container">
+                   <div class="discription">Description</div>
+                    <mat-form-field>
+                         <input matInput placeholder="Full Name">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="Capital">
+                    </mat-form-field>
+                    <mat-form-field>
+                            <input matInput placeholder="Email">
+                       </mat-form-field>
+                       <mat-form-field>
+                           <input matInput placeholder="Phone">
+                       </mat-form-field>
+                       <mat-form-field>
+                           
+                <mat-label>Country</mat-label>
+                            <mat-select [(value)]="selected">
+                              <mat-option value="option1">StartUp</mat-option>
+                              <mat-option value="option2">Investor</mat-option>
+                            </mat-select>
+                     
+                          </mat-form-field>
+                
+
+                  <div class="description">Investment Sector</div>
+                 <mat-form-field>
+                            <mat-select [(value)]="selected">
+                              <mat-option value="option1">Technology</mat-option>
+                              <mat-option value="option2">Agriculture</mat-option>
+                            </mat-select>
+                      </mat-form-field>
+                      <div class="description">Types of investment you have made before</div>
+                      <span class="gp"></span>
+                      <section class="example-section">
+                            <mat-checkbox class="example-margin" >Grant</mat-checkbox>
+                            <span class="ga"></span>
+                            <mat-checkbox class="example-margin" >Dept</mat-checkbox>
+                            <br>
+                            <mat-checkbox class="example-margin" >Revenue sharing</mat-checkbox>
+                            <span class="ga1"></span>
+                            <mat-checkbox class="example-margin" >Equity</mat-checkbox>
+                            <br>
+                            <mat-checkbox class="example-margin" >Convertible note</mat-checkbox>
+                            <span class="ga2"></span>
+                            <mat-checkbox class="example-margin" >Lease financing</mat-checkbox>
+                          </section> 
+                          <div class="descript">Types of investment you would like to make</div>
+                          <span class="gp"></span>
+                          <section class="example-section">
+                                <mat-checkbox class="example-margin" >Grant</mat-checkbox>
+                                <span class="ga"></span>
+                                <mat-checkbox class="example-margin" >Dept</mat-checkbox>
+                                <br>
+                                <mat-checkbox class="example-margin" >Revenue sharing</mat-checkbox>
+                                <span class="ga1"></span>
+                                <mat-checkbox class="example-margin" >Equity</mat-checkbox>
+                                <br>
+                                <mat-checkbox class="example-margin" >Convertible note</mat-checkbox>
+                                <span class="ga2"></span>
+                                <mat-checkbox class="example-margin" >Lease financing</mat-checkbox>
+                              </section>  
+                              <div class="descript">Stage of startups you target</div>
+                              <span class="gp"></span>
+                              <section class="example-section">
+                                    <mat-checkbox class="example-margin" >Grant</mat-checkbox>
+                                    <span class="ga"></span>
+                                    <mat-checkbox class="example-margin" >Dept</mat-checkbox>
+                                    <br>
+                                    <mat-checkbox class="example-margin" >Revenue sharing</mat-checkbox>
+                                    <span class="ga1"></span>
+                                    <mat-checkbox class="example-margin" >Equity</mat-checkbox>
+                                 
+                                  </section>   
+                                  <div class="descript">Your preferred investment ticket size</div>
+                                  <div class="rad">
+                                  <mat-radio-group aria-label="Select an option" class ="matrad">
+                                        <span class="radg"></span><mat-radio-button value="1">Below US 50,000$</mat-radio-button>
+                                        <span class="radp"></span>   <mat-radio-button value="2">Up to US 100,000$</mat-radio-button>
+                                        <br>
+                                        <mat-radio-button value="3">US 100,000-500,000$</mat-radio-button>
+                                        <mat-radio-button value="3">US >500,000$</mat-radio-button>
+                                      </mat-radio-group>
+                                    </div> 
+                </div>
+          </mat-card>
+        </div>

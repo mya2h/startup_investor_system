@@ -1,0 +1,73 @@
+.tp-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+ 
+ }
+ .tp-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    padding-left: 40px;
+    height: 60px;
+    width:300px;   
+ }
+ .tp-section span{
+     margin-left: 20px;
+     width: 40px;
+ height: 20px;
+ color: #163651;
+ font-family: "Source Sans Pro";
+ font-size: 14px;
+ font-weight: 400;
+ /* Text style for "Home" */
+ font-family: "Segoe UI";
+ font-weight: 400;
+ }
+ mat-icon {
+     width: 24px;
+ height: 24px;
+ /* border: 1px solid #707070; */
+ background: #ffffff;
+ }
+ .tp-section .image{
+     padding-top: 70px;
+ }
+ .tp-container a:link {
+     text-decoration: none;
+     
+ }
+ .navmenu{
+     padding-top: 60px;
+ }
+ mat-sidenav-container {
+     background:#ffffff !important;
+ }
+ mat-sidenav{
+ 
+     background:#ffffff !important;  
+ }
+ .col{
+     background: blue;
+ }
+ .mat-toolbar{
+    /* width: 1007px; */
+    height: 96px;
+    background-color: #f4f4f5;
+  }
+.inp{
+    padding-top: 40px;
+    width: 400px;
+}
+.small{
+    background-color: #f4f4f5;
+}
+.toolbar{
+    position: fixed;
+    z-index: 1;
+}
+.changed{
+    padding-top: 67px;
+}

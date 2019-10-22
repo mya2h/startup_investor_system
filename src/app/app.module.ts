@@ -1,65 +1,44 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatInputModule,MatRadioModule,MatStepperModule,MatCheckboxModule,MatListModule, MatBadgeModule,MatCardModule,MatButtonModule,MatGridListModule, MatSelectModule,MatMenuModule,MatSidenavModule, MatIconModule,MatToolbarModule } from '@angular/material';
+import {HttpClientModule}  from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import {ReactiveFormsModule} from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field'; 
+import { ReactiveFormsModule} from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { MatInputModule,MatRadioModule,MatStepperModule,MatCheckboxModule,MatListModule, MatBadgeModule,MatCardModule,MatButtonModule,MatGridListModule, MatSelectModule,MatMenuModule,MatSidenavModule, MatIconModule,MatToolbarModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponent } from './auth/login/login.component';
-import { SignupComponent } from './auth/signup/signup.component';
-import { BackgroundComponent } from './background/background.component';
-import { NavComponent } from './nav/nav.component';
-import { TopbarComponent } from './topbar/topbar.component';
-import { HomeComponent } from './startup/home/home.component';
-import { InboxComponent } from './startup/inbox/inbox.component';
-import { InvestorComponent } from './startup/investor/investor.component';
-import { ExploreComponent } from './startup/explore/explore.component';
-import { StartupComponent } from './invest/startup/startup.component';
-import { HomeIComponent } from './invest/home-i/home-i.component';
-import { InboxIComponent } from './invest/inbox-i/inbox-i.component';
-import { ExploreIComponent } from './invest/explore-i/explore-i.component';
-import { NavIComponent } from './invest/nav-i/nav-i.component';
-import { ForgetPasswordComponent } from './auth/forget-password/forget-password.component';
-import { VarifyCodeComponent } from './auth/varify-code/varify-code.component';
-import { Form1Component } from './auth/investor/form1/form1.component';
-import { Form2Component } from './auth/investor/form2/form2.component';
-import { Form3Component } from './auth/investor/form3/form3.component';
-import { Form4Component } from './auth/investor/form4/form4.component';
+import { SignupComponent } from './Components/auth/signup/signup.component';
+import { LoginComponent } from './Components/auth/login/login.component';
+import { HomeInvestorComponent } from './Components/Investor/home-investor/home-investor.component';
+import { InboxInvestorComponent } from './Components/Investor/inbox-investor/inbox-investor.component';
+import { StartupsComponent } from './Components/Investor/startups/startups.component';
+import { ExploreComponent } from './Components/Investor/explore/explore.component';
+import { InvestorLandComponent } from './Components/Investor/investor-land/investor-land.component';
+import { InvestorProfileComponent } from './Components/Investor/investor-profile/investor-profile.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     SignupComponent,
-    BackgroundComponent,
-    NavComponent,
-    TopbarComponent,
-    HomeComponent,
-    InboxComponent,
-    InvestorComponent,
+    LoginComponent,
+    HomeInvestorComponent,
+    InboxInvestorComponent,
+    StartupsComponent,
     ExploreComponent,
-    StartupComponent,
-    HomeIComponent,
-    InboxIComponent,
-    ExploreIComponent,
-    NavIComponent,
-    ForgetPasswordComponent,
-    VarifyCodeComponent,
-    Form1Component,
-    Form2Component,
-    Form3Component,
-    Form4Component
-   
+    InvestorLandComponent,
+    InvestorProfileComponent
   ],
+
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule, 
-    ReactiveFormsModule,
+    ToastrModule,
     MatBadgeModule,  
     MatCardModule, 
     MatInputModule,
@@ -73,7 +52,6 @@ import { Form4Component } from './auth/investor/form4/form4.component';
     MatGridListModule,
     MatIconModule,
     MatMenuModule,
-    MatFormFieldModule,
     MatSidenavModule,
   ],
   providers: [],
