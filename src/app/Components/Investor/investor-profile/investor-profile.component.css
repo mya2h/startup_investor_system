@@ -1,15 +1,24 @@
 .example-card {
-    width: 760px;
-    height:  100%;
+    width: 500px;;
+    height:  520px;
     box-shadow: 1 4px 8px rgba(0, 0, 0, 0.05);
     background-color: #ffffff;
+    margin-left: 100px;
+    margin-top: 40px;
   }
   .all{
     padding-left: 90px;
   }
   .example-container{
-    padding-left: 21%;
+    padding-left: 61%;
     padding-top: 4%;
+  }
+  /* .radi{
+    padding-left:17%;
+  } */
+  .form1{
+    width:60%;
+    padding-left: 17%;
   }
   mat-form-field{
     width:70%;
@@ -98,22 +107,13 @@
     color: #163651;
   }
   .discription{
-    width: 102px;
-
-    height: 28px;
-    
+    padding-left: 17%;
     color: #163651;
-    
     font-family: "Source Sans Pro";
-    
-    font-size: 20px;
+    font-size: 14px;
     
     font-weight: 400;
-    
-    line-height: 13px;
-    padding-top: 3%;
-    /* Text style for "Descriptio" */
-    
+    padding-top: 20px;
     font-family: "Segoe UI";
     
     font-weight: 400;
@@ -161,4 +161,25 @@
     line-height: 25px;
     font-family: "Segoe UI";
     font-weight: 400;   
+
+  }
+ mat-step{
+   color:black!important;
+ }
+.grid{
+  float: left;
+}
+.bt{
+  margin-top: 80px;
+  float: left;
+  margin-left: 80px;
+  width: 155px;
+  height: 45px;
+  padding-left: 7px;
+box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16);
+background-color: #163651;
+color: #ffffff;
+}
+.strip{
+  float: left;
 }

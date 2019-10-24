@@ -19,16 +19,15 @@ export class LoginComponent implements OnInit {
    }
    console.log(value);
    this.loginservice.authenticate(value).subscribe(data=>{
-     if(data.success){
       if(value.role=="investor"){
+        localStorage.setItem('token',data.token);
+        console.log(data.token);
         this.router.navigate(['/investor-land']);
         console.log(value.role);
       }
-      else{
-        alert("you are not investor");
-      }
-     }
-   });
+
+   },err=>console.log(err)
+   );
   
   }
   ngOnInit() {

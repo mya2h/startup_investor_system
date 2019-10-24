@@ -13,37 +13,39 @@
             </mat-card-header>
             
                 <div class="example-container">
+                    <form [formGroup]="firstFormGroup">
                     <label><mat-icon class="ic1">perm_identity</mat-icon> </label><span class="g"></span>
                     <mat-form-field>
-                         <input  matInput placeholder="First Name" #firstName formControlName="firstName">
+                         <input  matInput placeholder="First Name" #firstName formControlName="firstName" required>
                     </mat-form-field>
                   <br>
                   <label><mat-icon class="ic1">perm_identity</mat-icon> </label><span class="g"></span>
                   <mat-form-field>
-                       <input  matInput placeholder="Last Name" #lastName>
+                       <input  matInput placeholder="Last Name" #lastName required>
                   </mat-form-field>
                 <br>
                   <label><mat-icon class="ic1">mail</mat-icon> </label><span class="g"></span>
                   <mat-form-field>
-                       <input  matInput placeholder="Email" #email>
+                       <input  matInput placeholder="Email" #email required>
                   </mat-form-field>
                 <br>
                 <label><mat-icon class="ic1">call</mat-icon> </label><span class="g"></span>
                 <mat-form-field>
-                     <input  matInput placeholder="Phone" #phone>
+                     <input  matInput placeholder="Phone" #phone required>
                 </mat-form-field>
               <br>
                   <label> <mat-icon class="ic2">lock</mat-icon>  </label><span class="g"></span>
                     <mat-form-field>
-                        <input matInput type="password" placeholder="Password" #password>
+                        <input matInput type="password" placeholder="Password" #password required>
                     </mat-form-field>
                     <br>
                     <label> <mat-icon class="ic2">lock</mat-icon>  </label><span class="g"></span>
                     <mat-form-field>
-                        <input matInput type="password" placeholder="Confirm Password">
+                        <input matInput type="password" placeholder="Confirm Password" required>
                     </mat-form-field>
                     <br>
-                    <label> <mat-icon class="ic2">drag_handle</mat-icon>  </label><span class="g"></span><mat-form-field>
+                    <label> <mat-icon class="ic2">drag_handle</mat-icon>  </label><span class="g"></span>
+                    <mat-form-field>
                      
                         <mat-select #role [(value)]="selected" >
                           <mat-option value="startup">StartUp</mat-option>
@@ -52,7 +54,7 @@
                 
                       </mat-form-field>
                     <button class="signup" mat-button id="signup" (click)="signup(firstName.value,lastName.value,email.value,phone.value,password.value,selected)">SIGNUP</button>
-
+                  </form>
                   </div>
                   <!-- signup -->
           </mat-card>

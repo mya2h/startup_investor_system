@@ -1,0 +1,26 @@
+.count{
+    margin-top: 70px;
+    margin-left: 100px;
+    float: left;
+}
+.count1{
+    float: left;
+    width: 250px;
+    height: 120px;
+    background-color: rgb(247, 247, 134)
+}
+.count2{
+    float: left;
+    width: 250px;
+    height: 120px;
+    background-color: rgb(114, 175, 175)
+}
+.count3{
+    float: left;
+    width: 250px;
+    height: 120px;
+    background-color: rgb(122, 108, 133)
+}
+.txt{
+    padding-left: 10px;
+}

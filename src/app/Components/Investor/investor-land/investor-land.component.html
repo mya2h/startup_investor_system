@@ -1,3 +1,4 @@
+
 <mat-sidenav-container class = "tp-container">
     <mat-sidenav mode = "side" opened>
        <section class = "tp-section">
@@ -6,22 +7,23 @@
      </div>
        </section>
        <div class ="navmenu">
-        <a href=#>
+        <a  routerLink="/investor-land/home" routerLinkActive="active">
        <section class = "tp-section">
              <mat-icon>home</mat-icon><span> Home</span>
        </section>
-     </a>   
-     <a href="#">
+     </a>  
+     
+     <a routerLink="/investor-land/inbox" routerLinkActive="active">
        <section class = "tp-section">
              <mat-icon> mail_outline</mat-icon><span>	Inbox</span>
        </section>
      </a>
-     <a href=#>
+     <a routerLink="/investor-land/startups" routerLinkActive="active">
        <section class = "tp-section">
              <mat-icon>supervisor_account</mat-icon><span>Startups</span>
       </section>
      </a> 
-     <a href=#>
+     <a routerLink="/investor-land/explore" routerLinkActive="active">
       <section class = "tp-section">
              <mat-icon>explore</mat-icon> <span>Explore</span>
       </section>
@@ -31,18 +33,37 @@
     <mat-sidenav-content>
         <mat-toolbar class="toolbar">
             <mat-toolbar-row>
-              <span>
-                  
+              <span> 
                   <mat-icon class="small">search</mat-icon>  
                     <mat-form-field class="inp">
-                       <input  matInput placeholder="search">  
+                       <input  matInput class="iny" placeholder="Search for startups and investor">  
                 </mat-form-field>
                </span>
+               <div class="padright">
+          
+                  <mat-icon class="new" matBadge="15" matBadgeColor="warn">notifications</mat-icon>
+                </div>
+               <span class="between"></span>
+               <button mat-button [matMenuTriggerFor]="appMenu">
+                <img class="jpg-icon"  src="../../../../assets/images/Image_1.png" 
+                    style="max-width:    70%; min-width: 70%;">
+              </button>    
+     <mat-menu #appMenu="matMenu">
+        <a routerLink="/investor-land/profile">   
+             <button mat-menu-item >
+         Profile</button>
+        </a>
+         <button mat-menu-item (click)="logservice.logout()">Logout</button>
+       
+        
+        </mat-menu>
             </mat-toolbar-row>
           </mat-toolbar>
           <div class="changed">
-              <app-investor-profile></app-investor-profile>
+              <!-- <app-investor-profile></app-investor-profile> -->
+              <router-outlet></router-outlet> 
           </div>
           
+  
      </mat-sidenav-content>
  </mat-sidenav-container>

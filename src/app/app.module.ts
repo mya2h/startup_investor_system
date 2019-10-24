@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule}  from '@angular/common/http';
+import { CounterModule } from 'ngx-counter';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule} from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
@@ -16,6 +17,8 @@ import { StartupsComponent } from './Components/Investor/startups/startups.compo
 import { ExploreComponent } from './Components/Investor/explore/explore.component';
 import { InvestorLandComponent } from './Components/Investor/investor-land/investor-land.component';
 import { InvestorProfileComponent } from './Components/Investor/investor-profile/investor-profile.component';
+import { AuthGuard } from './auth.guard';
+
 
 
 @NgModule({
@@ -53,8 +56,9 @@ import { InvestorProfileComponent } from './Components/Investor/investor-profile
     MatIconModule,
     MatMenuModule,
     MatSidenavModule,
+    CounterModule.forRoot()
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

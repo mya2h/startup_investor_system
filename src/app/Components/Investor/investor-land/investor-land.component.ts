@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {LoginService} from '../../../Services/login.service';
 
 @Component({
   selector: 'app-investor-land',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InvestorLandComponent implements OnInit {
 
-  constructor() { }
+  constructor(private logservice : LoginService) { }
 
   ngOnInit() {
   }

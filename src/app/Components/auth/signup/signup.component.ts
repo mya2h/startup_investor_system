@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../../Model/users';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 // import { ToastrService } from 'ngx-toastr';
 import {SignupService} from '../../../Services/signup.service'
 @Component({

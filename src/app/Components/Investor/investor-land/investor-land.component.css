@@ -60,6 +60,9 @@
 .inp{
     padding-top: 40px;
     width: 400px;
+    color: grey;
+    font-size: 14px;
+    border-bottom-color: aquamarine;
 }
 .small{
     background-color: #f4f4f5;
@@ -71,3 +74,33 @@
 .changed{
     padding-top: 67px;
 }
+mat-icon{
+    color:#163651;
+}
+.iny{
+    color: black;
+
+}
+.padright{
+    padding-left: 320px;
+    padding-top: 12px;
+}
+.active{
+   background-color:blue;
+  }
+  .new{
+      background-color: #f4f4f5;
+     
+  }
+.between{
+    padding-left: 27px;
+}
+a:link{
+    text-decoration: none;
+}
+/* .olu{
+    padding-top: 12px;
+} */
+/* input{
+    color: blue;
+} */
