@@ -19,12 +19,15 @@ export class LoginComponent implements OnInit {
    }
    console.log(value);
    this.loginservice.authenticate(value).subscribe(data=>{
-      if(value.role=="investor"){
+    
+
         localStorage.setItem('token',data.token);
         console.log(data.token);
-        this.router.navigate(['/investor-land']);
+        // this.router.navigate(['/investor-land']);
+        this.router.navigate(['/dashboard']);
         console.log(value.role);
-      }
+        localStorage.setItem('role',value.role);
+
 
    },err=>console.log(err)
    );

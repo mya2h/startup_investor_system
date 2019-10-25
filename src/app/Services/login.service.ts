@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { investorProfile } from '../Model/investorProfile';
 
 export interface User{
   email:string,
@@ -31,9 +32,16 @@ export class LoginService {
   }
   logout(){
     localStorage.removeItem('token');
+    localStorage.removeItem('role');
     this.router.navigate(['/'])
   }
   loogedIn(){
     return !!localStorage.getItem('token');
+  }
+  getRole(){
+    return localStorage.getItem('role');
+  }
+  getToken(){
+    return localStorage.getItem('token');
   }
 }

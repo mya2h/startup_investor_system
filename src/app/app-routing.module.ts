@@ -10,22 +10,41 @@ import {InboxInvestorComponent} from '../app/Components/Investor/inbox-investor/
 import {StartupsComponent} from '../app/Components/Investor/startups/startups.component'
 import { AuthGuard } from './auth.guard';
 import { LoginGuard } from '../app/Guard/login.guard';
+import {DashboardComponent} from '../app/Components/dashboard/dashboard/dashboard.component'
+import {HomeComponent} from '../app/Components/dashboard/home/home.component';
+import {InboxComponent} from '../app/Components/dashboard/inbox/inbox.component';
+import { ExploreallComponent} from '../app/Components/dashboard/exploreall/exploreall.component';
+import {StartupallComponent} from '../app/Components/dashboard/startupall/startupall.component';
+import {ProfileComponent} from '../app/Components/dashboard/profile/profile.component';
+
+import { from } from 'rxjs';
+
+
 const routes: Routes = [
   {path: '', component: LoginComponent ,canActivate:[LoginGuard]},
-  {path: 'investor-land', component: InvestorLandComponent,canActivate:[AuthGuard],
-    children:[
-      {path:'home',component:HomeInvestorComponent},
-      {path:'profile',component:InvestorProfileComponent},
-      {path:'inbox',component:InboxInvestorComponent},
-      {path:'startups',component:StartupsComponent},
-      {path:'explore',component:ExploreComponent},
-      {path:'profile',component:InvestorProfileComponent}
-    ]
+
+  // {path: 'investor-land', component: InvestorLandComponent,canActivate:[AuthGuard],
+  //   children:[
+  //     {path:'home',component:HomeInvestorComponent},
+  //     {path:'profile',component:InvestorProfileComponent},
+  //     {path:'inbox',component:InboxInvestorComponent},
+  //     {path:'startups',component:StartupsComponent},
+  //     {path:'explore',component:ExploreComponent},
+  //     {path:'profile',component:InvestorProfileComponent}
+  //   ]
     
-   },
-   {path:'signup',component:SignupComponent}
- 
-];
+  //  },
+   {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard],
+   children:[
+    {path:'home',component:HomeComponent},
+    {path:'inbox',component:InboxComponent},
+    {path:'startups',component:StartupallComponent},
+    {path:'explore',component:ExploreallComponent},
+    {path:'profile',component:ProfileComponent}
+]},
+{path:'signup',component:SignupComponent}
+
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

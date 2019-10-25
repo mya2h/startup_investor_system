@@ -1,0 +1,6 @@
+<div *ngIf="getrole()">
+<app-home-investor></app-home-investor>
+</div>
+<div *ngIf="!getrole()">
+    <app-startups-home></app-startups-home>
+</div>

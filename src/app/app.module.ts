@@ -18,6 +18,17 @@ import { ExploreComponent } from './Components/Investor/explore/explore.componen
 import { InvestorLandComponent } from './Components/Investor/investor-land/investor-land.component';
 import { InvestorProfileComponent } from './Components/Investor/investor-profile/investor-profile.component';
 import { AuthGuard } from './auth.guard';
+import { HomeComponent } from './Components/dashboard/home/home.component';
+import { DashboardComponent } from './Components/dashboard/dashboard/dashboard.component';
+import { InboxComponent } from './Components/dashboard/inbox/inbox.component';
+import { ProfileComponent } from './Components/dashboard/profile/profile.component';
+import { StartupsHomeComponent } from './Components/startups/startups-home/startups-home.component';
+import { StartupsInboxComponent } from './Components/startups/startups-inbox/startups-inbox.component';
+import { StartupsStartupsComponent } from './Components/startups/startups-startups/startups-startups.component';
+import { StartupsExploreComponent } from './Components/startups/startups-explore/startups-explore.component';
+import { StartupsProfileComponent } from './Components/startups/startups-profile/startups-profile.component';
+import { ExploreallComponent } from './Components/dashboard/exploreall/exploreall.component';
+import { StartupallComponent } from './Components/dashboard/startupall/startupall.component';
 
 
 
@@ -31,7 +42,18 @@ import { AuthGuard } from './auth.guard';
     StartupsComponent,
     ExploreComponent,
     InvestorLandComponent,
-    InvestorProfileComponent
+    InvestorProfileComponent,
+    HomeComponent,
+    DashboardComponent,
+    InboxComponent,
+    ProfileComponent,
+    StartupsHomeComponent,
+    StartupsInboxComponent,
+    StartupsStartupsComponent,
+    StartupsExploreComponent,
+    StartupsProfileComponent,
+    ExploreallComponent,
+    StartupallComponent
   ],
 
   imports: [

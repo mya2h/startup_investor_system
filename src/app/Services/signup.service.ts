@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class SignupService {
 
-  constructor(private http: HttpClient,) { }
+  constructor(private http: HttpClient) { }
 
   register(user: User) :Observable<any> {
     const formValue=JSON.stringify(user); 
