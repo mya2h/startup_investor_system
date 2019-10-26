@@ -22,19 +22,7 @@ import { from } from 'rxjs';
 
 const routes: Routes = [
   {path: '', component: LoginComponent ,canActivate:[LoginGuard]},
-
-  // {path: 'investor-land', component: InvestorLandComponent,canActivate:[AuthGuard],
-  //   children:[
-  //     {path:'home',component:HomeInvestorComponent},
-  //     {path:'profile',component:InvestorProfileComponent},
-  //     {path:'inbox',component:InboxInvestorComponent},
-  //     {path:'startups',component:StartupsComponent},
-  //     {path:'explore',component:ExploreComponent},
-  //     {path:'profile',component:InvestorProfileComponent}
-  //   ]
-    
-  //  },
-   {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard],
+  {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard],
    children:[
     {path:'home',component:HomeComponent},
     {path:'inbox',component:InboxComponent},

@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule}  from '@angular/common/http';
+import {HttpClientModule,HTTP_INTERCEPTORS}  from '@angular/common/http';
 import { CounterModule } from 'ngx-counter';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule} from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
-import { MatInputModule,MatRadioModule,MatStepperModule,MatCheckboxModule,MatListModule, MatBadgeModule,MatCardModule,MatButtonModule,MatGridListModule, MatSelectModule,MatMenuModule,MatSidenavModule, MatIconModule,MatToolbarModule } from '@angular/material';
+import { MatInputModule, MatDatepickerModule, MatNativeDateModule,MatRadioModule,MatStepperModule,MatCheckboxModule,MatListModule, MatBadgeModule,MatCardModule,MatButtonModule,MatGridListModule, MatSelectModule,MatMenuModule,MatSidenavModule, MatIconModule,MatToolbarModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,7 +29,9 @@ import { StartupsExploreComponent } from './Components/startups/startups-explore
 import { StartupsProfileComponent } from './Components/startups/startups-profile/startups-profile.component';
 import { ExploreallComponent } from './Components/dashboard/exploreall/exploreall.component';
 import { StartupallComponent } from './Components/dashboard/startupall/startupall.component';
-
+import { LogComponent } from './Components/auth/log/log.component';
+import {TokenInterceptorService} from './Services/token-interceptor.service';
+import { ProjectComponent } from './Components/startups/project/project.component';
 
 
 @NgModule({
@@ -53,7 +55,9 @@ import { StartupallComponent } from './Components/dashboard/startupall/startupal
     StartupsExploreComponent,
     StartupsProfileComponent,
     ExploreallComponent,
-    StartupallComponent
+    StartupallComponent,
+    LogComponent,
+    ProjectComponent
   ],
 
   imports: [
@@ -70,7 +74,8 @@ import { StartupallComponent } from './Components/dashboard/startupall/startupal
     MatStepperModule, 
     MatRadioModule,
     MatButtonModule,
-    MatListModule,
+    MatListModule,MatDatepickerModule, 
+    MatNativeDateModule,
     MatSelectModule,
     MatToolbarModule,
     MatCheckboxModule,
@@ -80,7 +85,13 @@ import { StartupallComponent } from './Components/dashboard/startupall/startupal
     MatSidenavModule,
     CounterModule.forRoot()
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

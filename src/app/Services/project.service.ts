@@ -2,15 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, from } from 'rxjs';
 import { Router } from '@angular/router';
-import {investorProfile} from '../Model/investorProfile';
+import {project} from '../Model/project';
+
 @Injectable({
   providedIn: 'root'
 })
-export class InvestorProfileService {
+export class ProjectService {
 
-  constructor(private http: HttpClient) { }
-  createProfile(investor: investorProfile) :Observable<any> {
-    const profile=JSON.stringify(investor); 
+  constructor(private http:HttpClient) { }
+  createProject(projects:project):Observable<any>{
+    const project = JSON.stringify(projects);
     const httpOptions = {
       headers: new HttpHeaders(
       {  
@@ -18,6 +19,7 @@ export class InvestorProfileService {
          'Content-Type': 'application/json'
       })
   }
-    return this.http.put('https://fierce-retreat-89553.herokuapp.com/v1/investors', profile,httpOptions)
-}
+  return this.http.post('https://fierce-retreat-89553.herokuapp.com/v1/startup-project', project,httpOptions);
+  
+  }
 }

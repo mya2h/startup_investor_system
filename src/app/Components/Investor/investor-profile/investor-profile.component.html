@@ -7,31 +7,31 @@
                   <img class="jpg-icon"  src="../../../../assets/images/Image_1.png" 
                       style="max-width:    70%; min-width: 70%;">
                 </button>  
-            <mat-radio-group aria-label="Select an option" class="radi">
+            <mat-radio-group aria-label="Select an option" class="radi" #type>
               <mat-radio-button value="company">Company</mat-radio-button>
               <mat-radio-button value="individual">Individual</mat-radio-button>
               <mat-radio-button value="other">Other</mat-radio-button>
             </mat-radio-group>
              <div class="discription">discription</div>
               <mat-form-field class="form1">
-                   <input matInput placeholder="Full Name">
+                   <input matInput placeholder="Full Name" #name>
               </mat-form-field >
               <br>
               <mat-form-field class="form1">
-                  <input matInput placeholder="Capital">
+                  <input matInput placeholder="Capital" #capital>
               </mat-form-field>
               <br>
               <mat-form-field class="form1">
-                      <input matInput placeholder="Email">
+                      <input matInput placeholder="Email" #email>
                  </mat-form-field>
                  <br>
                  <mat-form-field class="form1">
-                     <input matInput placeholder="Phone">
+                     <input matInput placeholder="Phone" #phone>
                  </mat-form-field>
                  <br>
                  <mat-form-field class="form1">
                   <mat-label>Country</mat-label>
-                      <mat-select [(value)]="selected">
+                      <mat-select [(value)]="selected" #country>
                         <mat-option value="option1">StartUp</mat-option>
                         <mat-option value="option2">Investor</mat-option>
                       </mat-select>
@@ -41,45 +41,47 @@
           <mat-step [stepControl]="secondFormGroup">
             <div class="discription form1">Investment Sector</div>
                  <mat-form-field class="form1">
-                            <mat-select [(value)]="selected">
+                            <mat-select [(value)]="selected" #investon>
                               <mat-option value="option1">Technology</mat-option>
                               <mat-option value="option2">Agriculture</mat-option>
                             </mat-select>
                       </mat-form-field>
                       <div class="discription">Types of investment you have made before</div>
-                      <section class="example-section" class="form1">
-                            <mat-checkbox class="example-margin" >Grant</mat-checkbox>
-                            <mat-checkbox class="example-margin" >Dept</mat-checkbox>
-                            <mat-checkbox class="example-margin" >Revenue sharing</mat-checkbox>
-                            <mat-checkbox class="example-margin" >Equity</mat-checkbox>
-                            <mat-checkbox class="example-margin" >Convertible note</mat-checkbox>
-                            <mat-checkbox class="example-margin" >Lease financing</mat-checkbox>
+                      <section class="example-section" class="form1" #before>
+                          <mat-checkbox value="grant" class="example-margin" >Grant</mat-checkbox>
+                          <mat-checkbox value="dept" class="example-margin" >Dept</mat-checkbox>
+                          <mat-checkbox value="revenue sharing" class="example-margin" >Revenue sharing</mat-checkbox>
+                          <mat-checkbox value="equity" class="example-margin" >Equity</mat-checkbox>  
+                          <mat-checkbox value="convertible note" class="example-margin" >Convertible note</mat-checkbox>
+                          <mat-checkbox value ="lease financing" class="example-margin" >Lease financing</mat-checkbox>
                           </section> 
                           <div class="discription">Types of investment you would like to make</div>
-                          <section class="example-section" class="form1">
-                                <mat-checkbox class="example-margin" >Grant</mat-checkbox>
-                                <mat-checkbox class="example-margin" >Dept</mat-checkbox>
-                                <mat-checkbox class="example-margin" >Revenue sharing</mat-checkbox>
-                                <mat-checkbox class="example-margin" >Equity</mat-checkbox>
-                                <mat-checkbox class="example-margin" >Convertible note</mat-checkbox>
-                                <mat-checkbox class="example-margin" >Lease financing</mat-checkbox>
+                          <section class="example-section" class="form1" #now>
+                                <mat-checkbox value="grant" class="example-margin" >Grant</mat-checkbox>
+                                <mat-checkbox value="dept" class="example-margin" >Dept</mat-checkbox>
+                                <mat-checkbox value="revenue sharing" class="example-margin" >Revenue sharing</mat-checkbox>
+                                <mat-checkbox value="equity" class="example-margin" >Equity</mat-checkbox>  
+                                <mat-checkbox value="convertible note" class="example-margin" >Convertible note</mat-checkbox>
+                                <mat-checkbox value ="lease financing" class="example-margin" >Lease financing</mat-checkbox>
                               </section>  
           </mat-step>
           <mat-step>
             <div class="discription">Stage of startups you target</div>
-                              <section class="example-section" class="form1"> 
-                                    <mat-checkbox class="example-margin" >Grant</mat-checkbox>
-                                    <mat-checkbox class="example-margin" >Dept</mat-checkbox>
-                                    <mat-checkbox class="example-margin" >Revenue sharing</mat-checkbox>
-                                    <mat-checkbox class="example-margin" >Equity</mat-checkbox>  
+                              <section class="example-section" class="form1" #target> 
+                                    <mat-checkbox value="grant" class="example-margin" >Grant</mat-checkbox>
+                                    <mat-checkbox value="dept" class="example-margin" >Dept</mat-checkbox>
+                                    <mat-checkbox value="revenue sharing" class="example-margin" >Revenue sharing</mat-checkbox>
+                                    <mat-checkbox value="equity" class="example-margin" >Equity</mat-checkbox>  
+                                    <mat-checkbox value="convertible note" class="example-margin" >Convertible note</mat-checkbox>
+                                    <mat-checkbox value ="lease financing" class="example-margin" >Lease financing</mat-checkbox>
                                   </section>   
                                   <div class="discription">Your preferred investment ticket size</div>
 
-                                  <mat-radio-group aria-label="Select an option">
-                                        <mat-radio-button value="1">Below US 50,000$</mat-radio-button>
-                                         <mat-radio-button value="2">Up to US 100,000$</mat-radio-button>
-                                        <mat-radio-button value="3">US 100,000-500,000$</mat-radio-button>
-                                        <mat-radio-button value="3">US >500,000$</mat-radio-button>
+                                  <mat-radio-group aria-label="Select an option" #ticket>
+                                        <mat-radio-button value="50000">Below US 50,000$</mat-radio-button>
+                                         <mat-radio-button value="100000">Up to US 100,000$</mat-radio-button>
+                                        <mat-radio-button value="200000">US 100,000-500,000$</mat-radio-button>
+                                        <mat-radio-button value="5000000">US >500,000$</mat-radio-button>
                                       </mat-radio-group>
                                       <br>
                                       <button class="save" mat-button >SAVE</button>                     

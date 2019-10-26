@@ -9,7 +9,7 @@ export class LoginGuard implements CanActivate {
   constructor(private _loginservice:LoginService,private _router:Router){}
   canActivate():boolean{
     if(this._loginservice.loogedIn()){
-      this._router.navigate(['/investor-land'])
+      this._router.navigate(['/dashboard'])
       return false
     } else{
       return true
