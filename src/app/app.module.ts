@@ -5,7 +5,7 @@ import { CounterModule } from 'ngx-counter';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule} from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
-import { MatInputModule, MatDatepickerModule, MatNativeDateModule,MatRadioModule,MatStepperModule,MatCheckboxModule,MatListModule, MatBadgeModule,MatCardModule,MatButtonModule,MatGridListModule, MatSelectModule,MatMenuModule,MatSidenavModule, MatIconModule,MatToolbarModule } from '@angular/material';
+import { MatInputModule,MatDialogModule, MatPaginatorModule,MatFormFieldModule,MatSortModule, MatDatepickerModule, MatNativeDateModule,MatRadioModule,MatStepperModule,MatCheckboxModule,MatListModule, MatBadgeModule,MatCardModule,MatButtonModule,MatGridListModule, MatSelectModule,MatMenuModule,MatSidenavModule, MatIconModule,MatToolbarModule,MatTableModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -32,7 +32,8 @@ import { StartupallComponent } from './Components/dashboard/startupall/startupal
 import { LogComponent } from './Components/auth/log/log.component';
 import {TokenInterceptorService} from './Services/token-interceptor.service';
 import { ProjectComponent } from './Components/startups/project/project.component';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { ViewprojectComponent } from './Components/startups/viewproject/viewproject.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { ProjectComponent } from './Components/startups/project/project.componen
     ExploreallComponent,
     StartupallComponent,
     LogComponent,
-    ProjectComponent
+    ProjectComponent,
+    ViewprojectComponent
   ],
 
   imports: [
@@ -69,12 +71,19 @@ import { ProjectComponent } from './Components/startups/project/project.componen
     BrowserAnimationsModule,
     ToastrModule,
     MatBadgeModule,  
+    FlexLayoutModule,
     MatCardModule, 
     MatInputModule,
+    MatFormFieldModule,
+    MatPaginatorModule,
     MatStepperModule, 
     MatRadioModule,
+    MatDialogModule,
     MatButtonModule,
-    MatListModule,MatDatepickerModule, 
+    MatTableModule,
+    MatSortModule,
+    MatListModule,
+    MatDatepickerModule, 
     MatNativeDateModule,
     MatSelectModule,
     MatToolbarModule,
@@ -92,6 +101,7 @@ import { ProjectComponent } from './Components/startups/project/project.componen
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ViewprojectComponent]
 })
 export class AppModule { }
