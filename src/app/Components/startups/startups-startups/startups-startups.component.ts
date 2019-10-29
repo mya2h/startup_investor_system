@@ -6,6 +6,7 @@ import {ViewprojectComponent} from '../viewproject/viewproject.component'
 import { from } from 'rxjs';
 import {project} from '../../../Model/project'
 import { DataSource } from '@angular/cdk/table';
+import { ProjectComponent } from '../project/project.component';
 export interface DialogData {
   animal: string;
   name: string;
@@ -58,6 +59,16 @@ public dataSource = new MatTableDataSource<project>();
   openDialog() {
     const dialogRef = this.dialog.open(ViewprojectComponent, {
       width: '250px',
+      data:this.dataSource.data
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+        
+    });
+  }
+  openProjectDialog() {
+    const dialogRef = this.dialog.open(ProjectComponent, {
+      width: '700px',
       data:this.dataSource.data
     });
 

@@ -1,0 +1,28 @@
+mat-card{
+    height: 550px;
+    width:500px;
+}
+mat-form-field{
+    width: 85%;
+    /* padding-top: 20px; */
+}
+mat-card-title{
+    color: #163651;
+    font-family: Garamond, Baskerville, Baskerville Old Face, Hoefler Text, Times New Roman, serif;
+    font-size: 30px;
+}
+.type{
+   padding-left: 2px;
+}
+.sector{
+    padding-top: 10px;
+}
+.alignright{
+    padding-left: 102px;
+}
+.alignright2{
+    padding-left: 5px;
+}
+mat-radio-button{
+    padding-top: 5px;
+}

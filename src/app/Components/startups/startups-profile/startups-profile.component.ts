@@ -13,7 +13,7 @@ export class StartupsProfileComponent implements OnInit {
 
   ngOnInit() {
     const profile:startupprofile={
-        first_name:"hena",
+        first_name:"khg",
         last_name:"fufa",
         email:"honeyfuf@gmail.com",
         phone_number:1234556,

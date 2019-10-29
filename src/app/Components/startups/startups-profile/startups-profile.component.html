@@ -1,42 +1,105 @@
-<div class="all">
-<form [formGroup]="ownerForm" autocomplete="off" novalidate (ngSubmit)="createOwner(ownerForm.value)" fxLayout="column wrap"
-      fxLayoutAlign="center center" fxLayoutGap="10px">
-  <mat-card-content>
-        <mat-form-field>
-                <input matInput type="text" placeholder="First Name" formControlName="name" id="name">
-               
-              </mat-form-field>
-              <br>
+<section fxLayoutAlign="center center">
+    <mat-card >
+        <mat-card-title>Create a new Project</mat-card-title>
+        <form [formGroup]="ownerForm" autocomplete="off" novalidate (ngSubmit)="createOwner(ownerForm.value)" fxLayout="column wrap"
+        fxLayoutAlign="center center" fxLayoutGap="10px">
+        <mat-card-content>
+              <mat-horizontal-stepper>
+                      <mat-step>
               <mat-form-field>
-                  <input matInput type="text" placeholder="Last Name" formControlName="name" id="name">
-                 
-                </mat-form-field>
-                <br>
-                <mat-form-field>
-                  <input matInput type="text" placeholder="Email" formControlName="name" id="name">
-                 
-                </mat-form-field>
-               <br>
-              <mat-form-field>
-                <input matInput [matDatepicker]="picker" placeholder="Choose a date of birth" formControlName="dateOfBirth" id="dateOfBirth" 
-                    readonly (click)="picker.open()">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>
-               <br>
-              <mat-form-field>
-                <input matInput type="text" placeholder="Address" formControlName="address">
-              </mat-form-field>
-              <br>
-              <mat-radio-group [(ngModel)]="selection" #radioGroup="matRadioGroup">
-                    <mat-radio-button value="option 1">Bachilor Degree</mat-radio-button>
-                    <mat-radio-button value="option 2">Masters Degree</mat-radio-button>
+                      <input matInput type="text" placeholder="Project Name" formControlName="name" id="name">
+                      <mat-hint align="left">Not more then 60 characters long.</mat-hint>
+    
+                    </mat-form-field>
                     <br>
-                    <mat-radio-button value="option 3">PHD</mat-radio-button>
-                    <mat-radio-button value="option 4">Others</mat-radio-button>
-                  </mat-radio-group>
-  </mat-card-content>
-  <mat-card-actions>
-  </mat-card-actions>
-</form>
-</div>
+                    <mat-form-field>
+                      <mat-label>Industry Sector</mat-label>
+                      <select matNativeControl required formControlName="sectorselector" id="sectorselector">
+                              <option value="technology">Technology</option>
+                              <option value="agriculture">Agriculture</option>
+                            </select>
+                      
+                    </mat-form-field>
+                    <br>
+                    <div class="label">
+                      Industry type
+                    </div>
+                    <div class="sector">
+                          <mat-radio-group #rGroup formControlName="industrySelector" id="industrySelector" >
+                          <mat-radio-button value="service provider" >Service Provider</mat-radio-button>
+                          <mat-radio-button value="manfacturer">Manufacturer</mat-radio-button>
+                          <mat-radio-button value="both" >Both</mat-radio-button>
+                      </mat-radio-group>
+                    </div>
+                        <br>
+                      <mat-form-field>
+                              <input matInput type="text" placeholder="Description" formControlName="description" id="description">
+                            </mat-form-field>
+                            <br>
+                            <div class="label">
+                              The fund you need for the startup
+                            </div>
+                            <div class="sector">
+                          <mat-radio-group #rGroup formControlName="funduneed" id="funduneed">
+                                  <mat-radio-button value="20000">Below 50,000$</mat-radio-button>
+                                  <mat-radio-button value="300000">100,000-500,000$</mat-radio-button>
+                                  <br>
+                                  <mat-radio-button value="60000">Up to 100,000$</mat-radio-button>
+                                  <mat-radio-button value="600000"> > 500,000$</mat-radio-button>
+                              </mat-radio-group>
+                            </div>
+                          </mat-step>
+                          <mat-step>
+                          <mat-form-field>
+                                  <mat-label>The capital you have for startup</mat-label>
+                                  <select matNativeControl required formControlName="funduhave" id="funduhave">
+                                          <option value="20000">Below 50,000$</option>
+                                          <option value="300000">100,000-500,000$</option>
+                                          <option value="60000">Up to 100,000$</option>
+                                          <option  value="600000"> > 500,000$</option>
+                                        </select>
+                        
+                                </mat-form-field>
+                             <br>
+                             <div class="label">
+                              Progress of the project
+                            </div>
+                            <div class="sector">
+                                    <mat-radio-group #rGroup formControlName="progress" id="progress">
+                                          <mat-radio-button value="idea stage">Idea stage</mat-radio-button>
+                                          <mat-radio-button value="establish track record" class="alignright">Establish track record</mat-radio-button>
+                                          <br>
+                                          <mat-radio-button value="Post revenue with trsction">Post revenue with trsction</mat-radio-button>
+                                          <mat-radio-button value="Prototype"  class="alignright2">Prototype</mat-radio-button>
+                                      </mat-radio-group>
+                                  
+                                    </div>
+                                      <mat-form-field class="multiple-items">
+                                        <mat-chip-list #chipList formControlName="subjects">
+                                          <mat-chip *ngFor="let subjectsArray of SubjectsArray" [selectable]="selectable" [removable]="removable"
+                                            (removed)="remove(subjectsArray)">
+                                            {{subjectsArray.name}}
+                                            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                                          </mat-chip>
+                                          <input placeholder="Add team members" [matChipInputFor]="chipList"
+                                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                                            (matChipInputTokenEnd)="add($event)">
+                                        </mat-chip-list>
+                                      </mat-form-field>    
+                                      <mat-form-field>
+                                        <input matInput type="text" placeholder="Representative email" formControlName="representative" id="representative">
+                                        
+                                      </mat-form-field>         
+                              </mat-step>
+                          </mat-horizontal-stepper>
+          </mat-card-content>   
+          <mat-card-actions align="center">
+            <button mat-raised-button color="primary" [disabled]="!ownerForm.valid">Create</button>
+            <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+          </mat-card-actions>
+  
+      </form>
+  
+      </mat-card>
+  
+  </section> 

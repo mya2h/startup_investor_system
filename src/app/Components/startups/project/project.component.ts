@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit,ViewChild } from '@angular/core';
+import { FormControl,FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 import {ProjectService } from '../../../Services/project.service'
 import { project } from 'src/app/Model/project';
-	
-export interface OwnerForCreation {
-    name: string;
-    dateOfBirth: Date;
-    address: string;
+import { MatDialog } from '@angular/material';
+import { SuccessDialogComponent } from '../../success-dialog/success-dialog.component';
+import {ErrorService} from '../../../Services/error.service';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { MatChipInputEvent } from '@angular/material/chips';
+import { map } from 'rxjs/operators';
+export interface Subject {
+  name: string
 }
 @Component({
   selector: 'app-project',
@@ -15,8 +18,16 @@ export interface OwnerForCreation {
   styleUrls: ['./project.component.css']
 })
 export class ProjectComponent implements OnInit {
+  visible = true;
+  selectable = true;
+  removable = true;
+  addOnBlur = true;
+  @ViewChild('chipList', { static: true }) chipList;
+  SubjectsArray: Subject[] = [];
+  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
+  private dialogConfig;
   public ownerForm: FormGroup;
-  constructor(private location: Location,private project:ProjectService) { }
+  constructor(private location: Location,private project:ProjectService,private dialog: MatDialog,private errorService: ErrorService) { }
   
   ngOnInit() {
     this.ownerForm = new FormGroup({
@@ -26,23 +37,16 @@ export class ProjectComponent implements OnInit {
       funduneed:new FormControl('', [Validators.required]),
       funduhave:new FormControl('', [Validators.required]),
       industrySelector:new FormControl('', [Validators.required]),
-      progress:new FormControl('', [Validators.required])
+      progress:new FormControl('', [Validators.required]),
+      subjects:new FormControl(this.SubjectsArray),
+      representative:new FormControl('',[Validators.required])
     });
-
-    // const project:project={
-    //   name:"kalkidan",
-    //   sector:"technology",
-    //   industry_type:"both",
-    //   description:"this is my project",
-    //   maximum_fund:324,
-    //   current_capital:4563,
-    //   current_status:"idea",
-    //   team_members:["5da864a60b3d8600235e0075","5dae0de58209990023a68a71"],
-    //   representative_id:"5da864a60b3d8600235e0075"
-    // }
-    // this.project.createProject(project).subscribe(data=>{
-    //   console.log(data);
-    // });
+    this.dialogConfig = {
+      height: '200px',
+      width: '400px',
+      disableClose: true,
+      data: { }
+    }
   }
   public hasError = (controlName: string, errorName: string) =>{
     return this.ownerForm.controls[controlName].hasError(errorName);
@@ -51,10 +55,32 @@ export class ProjectComponent implements OnInit {
   public onCancel = () => {
     this.location.back();
   }
+  add(event: MatChipInputEvent): void {
+    const input = event.input;
+    const value = event.value;
+    // Add language
+    if ((value || '').trim() && this.SubjectsArray.length < 5) {
+      this.SubjectsArray.push({ name: value.trim() })
+    }
+    // Reset the input value
+    if (input) {
+      input.value = '';
+    }
+  }
+    /* Remove dynamic languages */
+    remove(subject: Subject): void {
+      const index = this.SubjectsArray.indexOf(subject);
+      if (index >= 0) {
+        this.SubjectsArray.splice(index, 1);
+      }
+    }  
  
   public createOwner = (ownerFormValue) => {
     if (this.ownerForm.valid) {
-      console.log(ownerFormValue);
+      const newVal = ownerFormValue.subjects.map(o=>o.name);                                                                                                                                      
+      console.log("my new val",newVal);
+      console.log(ownerFormValue.subjects.name);
+      console.log()
      const project:project={
       name:ownerFormValue.name,
       sector:ownerFormValue.sectorselector,
@@ -63,12 +89,26 @@ export class ProjectComponent implements OnInit {
       maximum_fund:ownerFormValue.funduneed,
       current_capital:ownerFormValue.funduhave,
       current_status:ownerFormValue.progress,
-      team_members:["rozinaha1772@gmail.com","mahderhaileslasse@gmail.com"],
-      representative_id:"5da864a60b3d8600235e0075"
+      team_members:newVal,
+      representative_id:ownerFormValue.representative
     }
     this.project.createProject(project).subscribe(data=>{
       console.log(data);
-    });
+      let dialogRef = this.dialog.open(SuccessDialogComponent, this.dialogConfig);
+ 
+    //we are subscribing on the [mat-dialog-close] attribute as soon as we click on the dialog button
+    dialogRef.afterClosed()
+      .subscribe(result => {
+        this.location.back();
+      });
+    },
+    (error => {
+      this.errorService.dialogConfig = { ...this.dialogConfig };
+      this.errorService.handleError(error);
+      console.log(error);
+      console.log(error.error.message.error[0].message);
+    })
+  );
 
     }
   }

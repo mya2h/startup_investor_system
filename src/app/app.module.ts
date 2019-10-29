@@ -5,7 +5,7 @@ import { CounterModule } from 'ngx-counter';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule} from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
-import { MatInputModule,MatDialogModule, MatPaginatorModule,MatFormFieldModule,MatSortModule, MatDatepickerModule, MatNativeDateModule,MatRadioModule,MatStepperModule,MatCheckboxModule,MatListModule, MatBadgeModule,MatCardModule,MatButtonModule,MatGridListModule, MatSelectModule,MatMenuModule,MatSidenavModule, MatIconModule,MatToolbarModule,MatTableModule } from '@angular/material';
+import { MatInputModule,MatChipsModule,MatDialogModule, MatPaginatorModule,MatFormFieldModule,MatSortModule, MatDatepickerModule, MatNativeDateModule,MatRadioModule,MatStepperModule,MatCheckboxModule,MatListModule, MatBadgeModule,MatCardModule,MatButtonModule,MatGridListModule, MatSelectModule,MatMenuModule,MatSidenavModule, MatIconModule,MatToolbarModule,MatTableModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -34,6 +34,11 @@ import {TokenInterceptorService} from './Services/token-interceptor.service';
 import { ProjectComponent } from './Components/startups/project/project.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ViewprojectComponent } from './Components/startups/viewproject/viewproject.component';
+import { SuccessDialogComponent } from './Components/success-dialog/success-dialog.component';
+import { ErrorDialogComponent } from './Components/error-dialog/error-dialog.component';
+// import { AngularMaterialModule } from './material.module';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { TrialComponent } from './Components/startups/trial/trial.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +64,10 @@ import { ViewprojectComponent } from './Components/startups/viewproject/viewproj
     StartupallComponent,
     LogComponent,
     ProjectComponent,
-    ViewprojectComponent
+    ViewprojectComponent,
+    SuccessDialogComponent,
+    ErrorDialogComponent,
+    TrialComponent
   ],
 
   imports: [
@@ -74,6 +82,7 @@ import { ViewprojectComponent } from './Components/startups/viewproject/viewproj
     FlexLayoutModule,
     MatCardModule, 
     MatInputModule,
+    MatChipsModule,
     MatFormFieldModule,
     MatPaginatorModule,
     MatStepperModule, 
@@ -102,6 +111,12 @@ import { ViewprojectComponent } from './Components/startups/viewproject/viewproj
     }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ViewprojectComponent]
+  entryComponents: [
+    ViewprojectComponent,
+    SuccessDialogComponent,
+    ErrorDialogComponent,
+    ProjectComponent
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

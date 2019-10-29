@@ -16,7 +16,7 @@ import {InboxComponent} from '../app/Components/dashboard/inbox/inbox.component'
 import { ExploreallComponent} from '../app/Components/dashboard/exploreall/exploreall.component';
 import {StartupallComponent} from '../app/Components/dashboard/startupall/startupall.component';
 import {ProfileComponent} from '../app/Components/dashboard/profile/profile.component';
-
+import {ProjectComponent} from '../app/Components/startups/project/project.component';
 import { from } from 'rxjs';
 
 
