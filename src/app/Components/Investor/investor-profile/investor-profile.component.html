@@ -1,100 +1,85 @@
-<div class="grid">
-  <div class="strip">
-        <mat-card class="example-card">
-        <mat-horizontal-stepper >
-          <mat-step [stepControl]="firstFormGroup">    
-              <button mat-button class="bth">
-                  <img class="jpg-icon"  src="../../../../assets/images/Image_1.png" 
-                      style="max-width:    70%; min-width: 70%;">
-                </button>  
-            <mat-radio-group aria-label="Select an option" class="radi" #type>
+<section fxLayoutAlign="center center">
+  <mat-card>
+    <mat-card-title>Create a new Project</mat-card-title>
+    <form [formGroup]="ownerForm" autocomplete="off" novalidate (ngSubmit)="createOwner(ownerForm.value)"
+      fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+      <mat-card-content>
+        <mat-horizontal-stepper>
+          <mat-step>
+            <mat-radio-group aria-label="Select an option" class="radi" formControlName="option">
               <mat-radio-button value="company">Company</mat-radio-button>
               <mat-radio-button value="individual">Individual</mat-radio-button>
               <mat-radio-button value="other">Other</mat-radio-button>
             </mat-radio-group>
-             <div class="discription">discription</div>
-              <mat-form-field class="form1">
-                   <input matInput placeholder="Full Name" #name>
-              </mat-form-field >
-              <br>
-              <mat-form-field class="form1">
-                  <input matInput placeholder="Capital" #capital>
-              </mat-form-field>
-              <br>
-              <mat-form-field class="form1">
-                      <input matInput placeholder="Email" #email>
-                 </mat-form-field>
-                 <br>
-                 <mat-form-field class="form1">
-                     <input matInput placeholder="Phone" #phone>
-                 </mat-form-field>
-                 <br>
-                 <mat-form-field class="form1">
-                  <mat-label>Country</mat-label>
-                      <mat-select [(value)]="selected" #country>
-                        <mat-option value="option1">StartUp</mat-option>
-                        <mat-option value="option2">Investor</mat-option>
-                      </mat-select>
-               
-                    </mat-form-field>
-          </mat-step>
-          <mat-step [stepControl]="secondFormGroup">
-            <div class="discription form1">Investment Sector</div>
-                 <mat-form-field class="form1">
-                            <mat-select [(value)]="selected" #investon>
-                              <mat-option value="option1">Technology</mat-option>
-                              <mat-option value="option2">Agriculture</mat-option>
-                            </mat-select>
-                      </mat-form-field>
-                      <div class="discription">Types of investment you have made before</div>
-                      <section class="example-section" class="form1" #before>
-                          <mat-checkbox value="grant" class="example-margin" >Grant</mat-checkbox>
-                          <mat-checkbox value="dept" class="example-margin" >Dept</mat-checkbox>
-                          <mat-checkbox value="revenue sharing" class="example-margin" >Revenue sharing</mat-checkbox>
-                          <mat-checkbox value="equity" class="example-margin" >Equity</mat-checkbox>  
-                          <mat-checkbox value="convertible note" class="example-margin" >Convertible note</mat-checkbox>
-                          <mat-checkbox value ="lease financing" class="example-margin" >Lease financing</mat-checkbox>
-                          </section> 
-                          <div class="discription">Types of investment you would like to make</div>
-                          <section class="example-section" class="form1" #now>
-                                <mat-checkbox value="grant" class="example-margin" >Grant</mat-checkbox>
-                                <mat-checkbox value="dept" class="example-margin" >Dept</mat-checkbox>
-                                <mat-checkbox value="revenue sharing" class="example-margin" >Revenue sharing</mat-checkbox>
-                                <mat-checkbox value="equity" class="example-margin" >Equity</mat-checkbox>  
-                                <mat-checkbox value="convertible note" class="example-margin" >Convertible note</mat-checkbox>
-                                <mat-checkbox value ="lease financing" class="example-margin" >Lease financing</mat-checkbox>
-                              </section>  
+            <br>
+            <mat-icon>perm_identity</mat-icon>
+            <mat-form-field>
+              <input matInput type="text" placeholder="Country" formControlName="country" id="country">
+              <mat-hint align="left">Not more then 60 characters long.</mat-hint>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-select formControlName="investon">
+                <mat-option value="option1">Technology</mat-option>
+                <mat-option value="option2">Agriculture</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br>
+            <div class="discription">Types of investment you have made before</div>
+            <section *ngFor = "let before of investmentHaveMade ;" >
+              <mat-checkbox value="grant" class="example-margin" formControlName="havemade" [checked]="before.checked" (change)="getCheckboxes()">{{before.name}}</mat-checkbox>
+            </section>
+
+            <br>
+            <div class="discription">Types of investment you would like to make</div>
+            <section *ngFor="let interest of investmentWant">
+              <mat-checkbox value="grant" class="example-margin" formControlName="wanttomake" >{{interest}}</mat-checkbox>
+              
+            </section>
           </mat-step>
           <mat-step>
             <div class="discription">Stage of startups you target</div>
-                              <section class="example-section" class="form1" #target> 
-                                    <mat-checkbox value="grant" class="example-margin" >Grant</mat-checkbox>
-                                    <mat-checkbox value="dept" class="example-margin" >Dept</mat-checkbox>
-                                    <mat-checkbox value="revenue sharing" class="example-margin" >Revenue sharing</mat-checkbox>
-                                    <mat-checkbox value="equity" class="example-margin" >Equity</mat-checkbox>  
-                                    <mat-checkbox value="convertible note" class="example-margin" >Convertible note</mat-checkbox>
-                                    <mat-checkbox value ="lease financing" class="example-margin" >Lease financing</mat-checkbox>
-                                  </section>   
-                                  <div class="discription">Your preferred investment ticket size</div>
+            <mat-form-field>
+                <mat-label>The capital you have for startup</mat-label>
+                <select matNativeControl required formControlName="target" id="target">
+                        <option value="Idea stage">Idea stage</option>
+                        <option value="Established track record">Established track record</option>
+                        <option value="Prototype stage(pre-revenue)">Prototype stage(pre-revenue)</option>
+                        <option  value="Post-revenue with traction">Post-revenue with traction</option>
+                      </select>
+              </mat-form-field>
+            <div class="discription">Your preferred investment ticket size</div>
+            <mat-radio-group aria-label="Select an option" formControlName="ticketsize">
+              <mat-radio-button value="50000">Below US 50,000$</mat-radio-button>
+              <mat-radio-button value="100000">Up to US 100,000$</mat-radio-button>
+              <mat-radio-button value="200000">US 100,000-500,000$</mat-radio-button>
+              <mat-radio-button value="5000000">US >500,000$</mat-radio-button>
+            </mat-radio-group>
 
-                                  <mat-radio-group aria-label="Select an option" #ticket>
-                                        <mat-radio-button value="50000">Below US 50,000$</mat-radio-button>
-                                         <mat-radio-button value="100000">Up to US 100,000$</mat-radio-button>
-                                        <mat-radio-button value="200000">US 100,000-500,000$</mat-radio-button>
-                                        <mat-radio-button value="5000000">US >500,000$</mat-radio-button>
-                                      </mat-radio-group>
-                                      <br>
-                                      <button class="save" mat-button >SAVE</button>                     
+            <div class="discription">Your preferred investment ticket size</div>
+
+            <mat-radio-group aria-label="Select an option" formControlName="preferredticketsize">
+              <mat-radio-button value="50000">Below US 50,000$</mat-radio-button>
+              <mat-radio-button value="100000">Up to US 100,000$</mat-radio-button>
+              <mat-radio-button value="200000">US 100,000-500,000$</mat-radio-button>
+              <mat-radio-button value="5000000">US >500,000$</mat-radio-button>
+            </mat-radio-group>
+            <br>
+            <br>
+            <mat-icon>work</mat-icon>
+            <mat-form-field>
+              <input matInput type="text" placeholder="Investment thesis" formControlName="thesis" id="thesis">
+
+            </mat-form-field>
           </mat-step>
         </mat-horizontal-stepper>
-      </mat-card>
-    </div>
-      <div class="bt">
-      <button mat-button [matMenuTriggerFor]="appMenu">
-          Edit Profile
-        </button>  
-      
-      </div>
-    </div>
+      </mat-card-content>
+      <mat-card-actions align="center">
+        <button mat-raised-button color="primary" [disabled]="!ownerForm.valid">Edit Profile</button>
+        <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+      </mat-card-actions>
 
-         
+    </form>
+
+  </mat-card>
+
+</section>

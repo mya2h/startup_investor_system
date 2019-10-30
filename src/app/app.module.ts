@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule,HTTP_INTERCEPTORS}  from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CounterModule } from 'ngx-counter';
 import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
-import { MatInputModule,MatChipsModule,MatDialogModule, MatPaginatorModule,MatFormFieldModule,MatSortModule, MatDatepickerModule, MatNativeDateModule,MatRadioModule,MatStepperModule,MatCheckboxModule,MatListModule, MatBadgeModule,MatCardModule,MatButtonModule,MatGridListModule, MatSelectModule,MatMenuModule,MatSidenavModule, MatIconModule,MatToolbarModule,MatTableModule } from '@angular/material';
+import { MatInputModule, MatChipsModule, MatDialogModule, MatPaginatorModule, MatFormFieldModule, MatSortModule, MatDatepickerModule, MatNativeDateModule, MatRadioModule, MatStepperModule, MatCheckboxModule, MatListModule, MatBadgeModule, MatCardModule, MatButtonModule, MatGridListModule, MatSelectModule, MatMenuModule, MatSidenavModule, MatIconModule, MatToolbarModule, MatTableModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,7 +30,7 @@ import { StartupsProfileComponent } from './Components/startups/startups-profile
 import { ExploreallComponent } from './Components/dashboard/exploreall/exploreall.component';
 import { StartupallComponent } from './Components/dashboard/startupall/startupall.component';
 import { LogComponent } from './Components/auth/log/log.component';
-import {TokenInterceptorService} from './Services/token-interceptor.service';
+import { TokenInterceptorService } from './Services/token-interceptor.service';
 import { ProjectComponent } from './Components/startups/project/project.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ViewprojectComponent } from './Components/startups/viewproject/viewproject.component';
@@ -78,21 +78,21 @@ import { TrialComponent } from './Components/startups/trial/trial.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastrModule,
-    MatBadgeModule,  
+    MatBadgeModule,
     FlexLayoutModule,
-    MatCardModule, 
+    MatCardModule,
     MatInputModule,
     MatChipsModule,
     MatFormFieldModule,
     MatPaginatorModule,
-    MatStepperModule, 
+    MatStepperModule,
     MatRadioModule,
     MatDialogModule,
     MatButtonModule,
     MatTableModule,
     MatSortModule,
     MatListModule,
-    MatDatepickerModule, 
+    MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
     MatToolbarModule,
