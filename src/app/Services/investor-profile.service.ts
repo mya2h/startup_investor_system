@@ -18,6 +18,16 @@ export class InvestorProfileService {
           'Content-Type': 'application/json'
         })
     }
-    return this.http.put('https://fierce-retreat-89553.herokuapp.com/v1/investors', profile, httpOptions)
+    return this.http.post('https://fierce-retreat-89553.herokuapp.com/v1/investors', profile, httpOptions)
+  }
+  getStartupProject(): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders(
+        {
+
+          'Content-Type': 'application/json'
+        })
+    }
+    return this.http.get('https://fierce-retreat-89553.herokuapp.com/v1/startup-project', httpOptions);
   }
 }
