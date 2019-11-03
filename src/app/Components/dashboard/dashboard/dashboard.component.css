@@ -104,3 +104,14 @@ a:link{
 /* input{
     color: blue;
 } */
+/* mat-list-item &:hover:is-active {
+    background: hsla(0, 0%, 100%, 0.1) !important;
+    &:hover:active {
+        background: rgba(255, 255, 255, 0.04);
+      }
+      &:focus,
+      .mat-list-text {
+        background: none !important;
+      }
+  } */
+  

@@ -46,7 +46,7 @@ export class InvestorProfileComponent implements OnInit {
   ];
   //  investmentHaveMade = ['Grant', 'Dept', 'Revenue Sharing','Equity','Convertible note','Lease financing'];
   investmentWant = ['Grant', 'Dept', 'Revenue Sharing', 'Equity', 'Convertible note', 'Lease financing'];
-  startupStage = ["Idea stage","Established track record","Prototype stage(pre-revenue)","Post-revenue with traction"]
+  startupStage = ["Idea stage", "Established track record", "Prototype stage(pre-revenue)", "Post-revenue with traction"]
   haveMade: ICheckBoxItem[] = [];
   checkedList = [];
   @ViewChild('ref', { static: true }) ref;
@@ -59,7 +59,7 @@ export class InvestorProfileComponent implements OnInit {
   ngOnInit() {
     this.ownerForm = new FormGroup({
       option: new FormControl('', [Validators.maxLength(20)]),
-      city:new FormControl('',[Validators.maxLength(20)]),
+      city: new FormControl('', [Validators.maxLength(20)]),
       country: new FormControl('', [Validators.maxLength(20)]),
       investon: new FormControl(''),
       target: new FormControl(''),
@@ -76,31 +76,31 @@ export class InvestorProfileComponent implements OnInit {
 
   }
   public createOwner = (ownerFormValue) => {
-   
+
     // const final = ownerFormValue.myChoices.map()
-   const profile:investorProfile={
-    type:ownerFormValue.option,
-    country:ownerFormValue.country,
-    city:ownerFormValue.city,
-    investment_sector:ownerFormValue.investon,
-    type_of_investoments_made_before:["JDSFGDF"],
-    type_of_investoments_planning_to_make:["dsjghdfg"],
-    stage_of_startup:ownerFormValue.startupStage,
-    investment_ticket_size_min:ownerFormValue.ticketsize,
-    investment_ticket_size_max:ownerFormValue.preferredticketsize,
-    investment_thesis:ownerFormValue.thesis  
-   }
-   this.profile.createProfile(profile).subscribe(data=>{
-     console.log(data);
-   })
-  let ownersList:Array<string>=[];
-  ownerFormValue.myChoices.map(
-    data=>{
-ownersList.push(data.toString());
-console.log(data);
+    const profile: investorProfile = {
+      type: ownerFormValue.option,
+      country: ownerFormValue.country,
+      city: ownerFormValue.city,
+      investment_sector: ownerFormValue.investon,
+      type_of_investoments_made_before: ["JDSFGDF"],
+      type_of_investoments_planning_to_make: ["dsjghdfg"],
+      stage_of_startup: ownerFormValue.startupStage,
+      investment_ticket_size_min: ownerFormValue.ticketsize,
+      investment_ticket_size_max: ownerFormValue.preferredticketsize,
+      investment_thesis: ownerFormValue.thesis
     }
-  )
-  console.log(typeof([""]));
+    this.profile.createProfile(profile).subscribe(data => {
+      console.log(data);
+    })
+    let ownersList: Array<string> = [];
+    ownerFormValue.myChoices.map(
+      data => {
+        ownersList.push(data.toString());
+        console.log(data);
+      }
+    )
+    console.log(typeof ([""]));
 
   }
   onCheckChange(event) {

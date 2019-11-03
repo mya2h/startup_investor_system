@@ -3,6 +3,7 @@ import { ErrorDialogComponent } from '../Components/error-dialog/error-dialog.co
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
+import {MatSnackBar} from '@angular/material/snack-bar';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +12,7 @@ export class ErrorService {
   public errorMessage: string = '';
   public errorOther: string = '';
 
-  constructor(private router: Router, private dialog: MatDialog) { }
+  constructor(private router: Router, private dialog: MatDialog, private _snackBar:MatSnackBar) { }
 
   public handleError = (error: HttpErrorResponse) => {
     if (error.status === 500) {
@@ -27,7 +28,14 @@ export class ErrorService {
 
   private handle500Error = (error: HttpErrorResponse) => {
     this.createErrorMessage(error);
+
+  // openSnackBar(message: string, action: string) {
+  //   this._snackBar.open(message, action, {
+  //     duration: 2000,
+  //   });
+  // }
     this.dialogConfig.data = { 'errorMessage': this.errorMessage };
+    
     this.dialog.open(ErrorDialogComponent, this.dialogConfig);
   }
 
@@ -41,6 +49,9 @@ export class ErrorService {
     this.createOtherErrorMessage(error);
     this.dialogConfig.data = { 'errorMessage': this.errorOther };
     this.dialog.open(ErrorDialogComponent, this.dialogConfig);
+    //    this._snackBar.open(this.dialogConfig, action, {
+    //   duration: 2000,
+    // });
   }
 
   private createErrorMessage(error: HttpErrorResponse) {

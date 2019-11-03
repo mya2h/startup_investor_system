@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material';
 import { SuccessDialogComponent } from '../../success-dialog/success-dialog.component';
 import {ErrorService} from '../../../Services/error.service';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { map } from 'rxjs/operators';
 export interface Subject {
@@ -18,6 +19,7 @@ export interface Subject {
   styleUrls: ['./project.component.css']
 })
 export class ProjectComponent implements OnInit {
+  durationInSeconds = 5;
   visible = true;
   selectable = true;
   removable = true;
@@ -27,7 +29,7 @@ export class ProjectComponent implements OnInit {
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   private dialogConfig;
   public ownerForm: FormGroup;
-  constructor(private location: Location,private project:ProjectService,private dialog: MatDialog,private errorService: ErrorService) { }
+  constructor(private location: Location,private project:ProjectService,private _snackBar: MatSnackBar,private errorService: ErrorService) { }
   
   ngOnInit() {
     this.ownerForm = new FormGroup({
@@ -94,13 +96,9 @@ export class ProjectComponent implements OnInit {
     }
     this.project.createProject(project).subscribe(data=>{
       console.log(data);
-      let dialogRef = this.dialog.open(SuccessDialogComponent, this.dialogConfig);
+      this.openSnackBar();
  
     //we are subscribing on the [mat-dialog-close] attribute as soon as we click on the dialog button
-    dialogRef.afterClosed()
-      .subscribe(result => {
-        this.location.back();
-      });
     },
     (error => {
       this.errorService.dialogConfig = { ...this.dialogConfig };
@@ -109,9 +107,29 @@ export class ProjectComponent implements OnInit {
       console.log(error.error.message.error[0].message);
     })
   );
+  
 
     }
   }
- 
 
+  openSnackBar() {
+    this._snackBar.openFromComponent(SuccessDialogComponent, {
+      duration: this.durationInSeconds * 1000,
+    });
+  }
+
+  // openSnackBar(message: string, action: string) {
+  //   this._snackBar.open(message, action, {
+  //     duration: 2000,
+  //   });
+  // }
+//   openSnackBar(message: string, action: string, className: string) {
+
+//     this.snackBar.open(message, action, {
+//      duration: 2000,
+//      verticalPosition: 'top',
+//      horizontalPosition: 'end',
+//      panelClass: [SuccessDialogComponent],
+//    });
+// }
 }

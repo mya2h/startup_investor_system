@@ -7,7 +7,7 @@ import { investorProfile } from '../Model/investorProfile';
   providedIn: 'root'
 })
 export class InvestorProfileService {
-
+  apiURL="https://fierce-retreat-89553.herokuapp.com/v1";
   constructor(private http: HttpClient) { }
   createProfile(investor: investorProfile): Observable<any> {
     const profile = JSON.stringify(investor);
@@ -18,7 +18,7 @@ export class InvestorProfileService {
           'Content-Type': 'application/json'
         })
     }
-    return this.http.post('https://fierce-retreat-89553.herokuapp.com/v1/investors', profile, httpOptions)
+    return this.http.post(`${this.apiURL}/investors`, profile, httpOptions)
   }
   getStartupProject(): Observable<any> {
     const httpOptions = {
@@ -28,6 +28,6 @@ export class InvestorProfileService {
           'Content-Type': 'application/json'
         })
     }
-    return this.http.get('https://fierce-retreat-89553.herokuapp.com/v1/startup-project', httpOptions);
+    return this.http.get(`${this.apiURL}/startup-project`, httpOptions);
   }
 }

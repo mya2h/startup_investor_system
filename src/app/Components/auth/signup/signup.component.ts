@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../../Model/users';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-// import { ToastrService } from 'ngx-toastr';
+import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import {SignupService} from '../../../Services/signup.service'
 @Component({
   selector: 'app-signup',
@@ -9,31 +8,41 @@ import {SignupService} from '../../../Services/signup.service'
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit  {
+  public registerForm:FormGroup;
   selected = 'startup';
   constructor(private signupService:SignupService) { }
-  signup(firstname:string,lastname:string,email:string,phone:number,password:string,role:string){
-   const value :User = {
-      first_name:firstname,
-      last_name:lastname,
-      email:email,
-      password:password,
-      phone_number:phone,
-      role:role
-    }
-    this.signupService.register(value).subscribe(data=>{
-      
-     if(data.success){
-       alert("it works");
-       }
-    })
-    console.log(value);
-  }
-
-
-
-
   ngOnInit() {
+    this.registerForm = new FormGroup({
+      firstName: new FormControl('',[Validators.required]),
+      lastName : new FormControl('',[Validators.required]),
+      email: new FormControl('',[Validators.required]),
+      phone:new FormControl('',[Validators.required]),
+      password:new FormControl('',[Validators.required]),
+      confirmPassword: new FormControl('',[Validators.required]),
+      role:new FormControl('',[Validators.required])
+    })   
+ 
+  }
+  public createOwner = (ownerFormValue) => {
+    if (this.registerForm.valid) {
 
+     const user:User={
+      first_name:ownerFormValue.firstName,
+      last_name:ownerFormValue.lastName,
+      phone_number:ownerFormValue.phone, 
+      email:ownerFormValue.email,
+      password:ownerFormValue.password,
+      role:ownerFormValue.role
+    }
+    this.signupService.register(user).subscribe(data=>{
+      if(data.success){
+        alert("success");
+      }
+
+
+ },err=>console.log(err)
+ );
+  }
   }
 
 }

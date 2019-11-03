@@ -1,1 +1,96 @@
-explore for investor works
+<mat-form-field class="selector">
+  <mat-select placeholder="Sector*" #clientValue (selectionChange)="changeClient($event.value)">
+    <mat-option *ngFor="let client of sector" [value]="client">
+      {{client}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<h2>{{selectedDay}}</h2>
+
+<mat-card *ngIf="selectedDay=='All projects'">
+  <mat-grid-list cols="3" row="2" rowHeight="300px">
+    <div class="select">
+      
+      <mat-grid-tile *ngFor="let tile of allProjects" [style.background]="tile.color">
+          <a (click)="openChangePasswordForm(tile.description,tile.industry_type,tile.maximum_fund,tile.current_capital,tile.current_status)">
+        <div class="content">
+          <div class="title">
+            {{tile.name}}
+          </div>
+          <div class="image">
+            <img src="../../../../assets/images/Image_1.png">
+          </div>
+          <h3>Founder</h3>
+          <p>{{tile.representative_id}}</p>
+
+          <div class="description">
+            Description
+          </div>
+          <p>
+            {{tile.description}}
+          </p>
+        </div>
+      </a>
+      </mat-grid-tile>
+    
+    </div>
+  </mat-grid-list>
+  <button class="showmore" mat-button>Show more</button>
+</mat-card>
+<mat-card *ngIf="selectedDay=='Technology'">
+  <mat-grid-list cols="3" row="2" rowHeight="300px">
+    <div class="select">
+      <mat-grid-tile *ngFor="let tile of technology" [style.background]="tile.color">
+        <a (click)="openChangePasswordForm(tile.description,tile.industry_type,tile.maximum_fund,tile.current_capital,tile.current_status)">
+        <div class="content">
+          <div class="title">
+            {{tile.name}}
+          </div>
+          <div class="image">
+            <img src="../../../../assets/images/Image_1.png">
+          </div>
+          <h3>Founder</h3>
+          <p>{{tile.representative_id}}</p>
+
+          <div class="description">
+            Description
+          </div>
+          <p>
+            {{tile.description}}
+          </p>
+        </div>
+      </a>
+      </mat-grid-tile>
+    </div>
+  </mat-grid-list>
+  <button class="showmore" mat-button>Show more</button>
+</mat-card>
+<mat-card *ngIf="selectedDay=='Agriculture'">
+  <mat-grid-list cols="3" row="2" rowHeight="300px">
+    <div class="select">
+      <mat-grid-tile *ngFor="let tile of agriculture" [style.background]="tile.color">
+          <a (click)="openChangePasswordForm(tile.description,tile.industry_type,tile.maximum_fund,tile.current_capital,tile.current_status)">
+        <div class="content">
+          <div class="title">
+            {{tile.name}}
+          </div>
+          <div class="image">
+            <img src="../../../../assets/images/Image_1.png">
+          </div>
+          <h3>Founder</h3>
+          <p>{{tile.representative_id}}</p>
+
+          <div class="description">
+            Description
+          </div>
+          <p>
+            {{tile.description}}
+          </p>
+        </div>
+      </a>
+      </mat-grid-tile>
+    </div>
+  </mat-grid-list>
+
+  <button class="showmore" mat-button>Show more</button>
+</mat-card>

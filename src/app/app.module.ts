@@ -5,7 +5,7 @@ import { CounterModule } from 'ngx-counter';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
-import { MatInputModule, MatChipsModule, MatDialogModule, MatPaginatorModule, MatFormFieldModule, MatSortModule, MatDatepickerModule, MatNativeDateModule, MatRadioModule, MatStepperModule, MatCheckboxModule, MatListModule, MatBadgeModule, MatCardModule, MatButtonModule, MatGridListModule, MatSelectModule, MatMenuModule, MatSidenavModule, MatIconModule, MatToolbarModule, MatTableModule } from '@angular/material';
+import { MatInputModule,MatSnackBarModule, MatChipsModule, MatDialogModule, MatPaginatorModule, MatFormFieldModule, MatSortModule, MatDatepickerModule, MatNativeDateModule, MatRadioModule, MatStepperModule, MatCheckboxModule, MatListModule, MatBadgeModule, MatCardModule, MatButtonModule, MatGridListModule, MatSelectModule, MatMenuModule, MatSidenavModule, MatIconModule, MatToolbarModule, MatTableModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -36,9 +36,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ViewprojectComponent } from './Components/startups/viewproject/viewproject.component';
 import { SuccessDialogComponent } from './Components/success-dialog/success-dialog.component';
 import { ErrorDialogComponent } from './Components/error-dialog/error-dialog.component';
-// import { AngularMaterialModule } from './material.module';
+// import {ScrollingModule} from '@angular/cdk/scrolling'; 
+import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TrialComponent } from './Components/startups/trial/trial.component';
+import { VirtualScrollerModule } from 'ngx-virtual-scroller';
+import { ProjectDetailComponent } from './Components/Investor/project-detail/project-detail.component';
+import { StartupdescriptionComponent } from './Components/Investor/startupdescription/startupdescription.component';
+import { ProjectdetailComponent } from './Components/startups/projectdetail/projectdetail.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +72,10 @@ import { TrialComponent } from './Components/startups/trial/trial.component';
     ViewprojectComponent,
     SuccessDialogComponent,
     ErrorDialogComponent,
-    TrialComponent
+    TrialComponent,
+    ProjectDetailComponent,
+    StartupdescriptionComponent,
+    ProjectdetailComponent
   ],
 
   imports: [
@@ -88,6 +96,7 @@ import { TrialComponent } from './Components/startups/trial/trial.component';
     MatStepperModule,
     MatRadioModule,
     MatDialogModule,
+    MatSnackBarModule,
     MatButtonModule,
     MatTableModule,
     MatSortModule,
@@ -100,7 +109,10 @@ import { TrialComponent } from './Components/startups/trial/trial.component';
     MatGridListModule,
     MatIconModule,
     MatMenuModule,
+    VirtualScrollerModule,
     MatSidenavModule,
+    // ScrollingModule,
+    ScrollDispatchModule,
     CounterModule.forRoot()
   ],
   providers: [AuthGuard,
@@ -115,7 +127,8 @@ import { TrialComponent } from './Components/startups/trial/trial.component';
     ViewprojectComponent,
     SuccessDialogComponent,
     ErrorDialogComponent,
-    ProjectComponent
+    ProjectComponent,
+    ProjectDetailComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

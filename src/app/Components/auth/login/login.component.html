@@ -10,21 +10,21 @@
           </div>
           </mat-card-title>
         </mat-card-header>
-        
+        <form [formGroup]="ownerForm" autocomplete="off" novalidate (ngSubmit)="createOwner(ownerForm.value)">
             <div class="example-container">
                 <label><mat-icon class="ic1">perm_identity</mat-icon> </label><span class="g"></span>
                 <mat-form-field>
-                     <input matInput placeholder="Email" #email>
+                     <input matInput placeholder="Email" formControlName="email">
                 </mat-form-field>
               <br>
               <label> <mat-icon class="ic2">https</mat-icon>  </label><span class="g"></span>
                 <mat-form-field>
-                    <input matInput type="password" placeholder="Password" #password>
+                    <input matInput type="password" placeholder="Password"formControlName="password">
                 </mat-form-field>
               
               </div>
               <div class="si">
-              <mat-radio-group  [(ngModel)]="selected">
+              <mat-radio-group formControlName="role">
                 <mat-radio-button value="startup">Startup</mat-radio-button>
                 <mat-radio-button value="investor">Investor</mat-radio-button>
               </mat-radio-group>
@@ -42,9 +42,11 @@
               </div>
               <!-- signup -->
         <mat-card-actions>
-        <button class="login" mat-button  (click)="login(email.value,password.value,selected)">LOGIN</button>
+            <button class="login" mat-button  [disabled]="!ownerForm.valid">LOGIN</button>
+          <!-- <button mat-raised-button color="primary" [disabled]="!ownerForm.valid">Login</button> -->
          <span class="gap"></span>
          <a routerLink="/signup"> <button class ="signup" mat-button >SIGNUP</button></a>
         </mat-card-actions>
+        </form>
       </mat-card>
     </div>

@@ -11,51 +11,51 @@
               </div>
               </mat-card-title>
             </mat-card-header>
-            
+            <form [formGroup]="registerForm" autocomplete="off" novalidate (ngSubmit)="createOwner(registerForm.value)">
                 <div class="example-container">
-                    <form [formGroup]="firstFormGroup">
+                  
                     <label><mat-icon class="ic1">perm_identity</mat-icon> </label><span class="g"></span>
                     <mat-form-field>
-                         <input  matInput placeholder="First Name" #firstName formControlName="firstName" required>
+                         <input  matInput placeholder="First Name" formControlName="firstName">
                     </mat-form-field>
                   <br>
                   <label><mat-icon class="ic1">perm_identity</mat-icon> </label><span class="g"></span>
                   <mat-form-field>
-                       <input  matInput placeholder="Last Name" #lastName required>
+                       <input  matInput placeholder="Last Name"  formControlName="lastName">
                   </mat-form-field>
                 <br>
                   <label><mat-icon class="ic1">mail</mat-icon> </label><span class="g"></span>
                   <mat-form-field>
-                       <input  matInput placeholder="Email" #email required>
+                       <input  matInput placeholder="Email"  formControlName="email">
                   </mat-form-field>
                 <br>
                 <label><mat-icon class="ic1">call</mat-icon> </label><span class="g"></span>
                 <mat-form-field>
-                     <input  matInput placeholder="Phone" #phone required>
+                     <input  matInput placeholder="Phone"  formControlName="phone">
                 </mat-form-field>
               <br>
                   <label> <mat-icon class="ic2">lock</mat-icon>  </label><span class="g"></span>
                     <mat-form-field>
-                        <input matInput type="password" placeholder="Password" #password required>
+                        <input matInput type="password" placeholder="Password" formControlName="password">
                     </mat-form-field>
                     <br>
                     <label> <mat-icon class="ic2">lock</mat-icon>  </label><span class="g"></span>
                     <mat-form-field>
-                        <input matInput type="password" placeholder="Confirm Password" required>
+                        <input matInput type="password" placeholder="Confirm Password"formControlName="confirmPassword">
                     </mat-form-field>
                     <br>
                     <label> <mat-icon class="ic2">drag_handle</mat-icon>  </label><span class="g"></span>
                     <mat-form-field>
                      
-                        <mat-select #role [(value)]="selected" >
+                        <mat-select formControlName="role" >
                           <mat-option value="startup">StartUp</mat-option>
                           <mat-option value="investor">Investor</mat-option>
                         </mat-select>
                 
                       </mat-form-field>
-                    <button class="signup" mat-button id="signup" (click)="signup(firstName.value,lastName.value,email.value,phone.value,password.value,selected)">SIGNUP</button>
-                  </form>
+                    <button class="signup" mat-button id="signup" [disabled]="!registerForm.valid">SIGNUP</button>
                   </div>
+                  </form>
                   <!-- signup -->
           </mat-card>
         </div>
