@@ -1,1 +1,99 @@
-<p>startups-explore works!</p>
+<mat-form-field class="selector">
+        <mat-select placeholder="Sector*" #clientValue (selectionChange)="changeClient($event.value)">
+          <mat-option *ngFor="let client of sector" [value]="client">
+            {{client}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <h2>{{selected}}</h2>
+      
+    <mat-card *ngIf="selected=='All investors'">
+        <mat-grid-list cols="3" row="2" rowHeight="300px">
+          <div class="select">
+            
+            <mat-grid-tile *ngFor="let tile of allInvestors" [style.background]="tile.color">
+                <a (click)="readMore(tile._id,tile.sector,tile.description,tile.industry_type,tile.maximum_fund,tile.current_capital,tile.current_status)">
+              <div class="content">
+                <div class="image">
+                  <img src="../../../../assets/images/Image_1.png">
+                  <!-- <img src={{tile.profile_pic}}> -->
+                </div>
+                <h3>Founder</h3>
+                <div class="con">
+                {{tile.user_id.first_name}} {{tile.user_id.last_name}}<br>
+                {{tile.user_id.email}}
+                </div>
+              
+                <div class="description">
+                  Budget
+                </div>
+                <p>
+                {{tile.investment_ticket_size_min}}$ - {{tile.investment_ticket_size_min}}$
+                </p>
+                <div class="description">Sector
+                      </div>
+              </div>
+            </a>
+            </mat-grid-tile>
+          
+          </div>
+        </mat-grid-list>
+        <button class="showmore" mat-button>Show more</button>
+      </mat-card>
+      <mat-card *ngIf="selected=='Individual'">
+        <mat-grid-list cols="3" row="2" rowHeight="300px">
+          <div class="select">
+            <mat-grid-tile *ngFor="let tile of individual" [style.background]="tile.color">
+              <a (click)="readMore(tile._id,tile.sector,tile.description,tile.industry_type,tile.maximum_fund,tile.current_capital,tile.current_status)">
+                    <div class="content">
+                            <div class="image">
+                              <img src="../../../../assets/images/Image_1.png">
+                            </div>
+                            <h3>Founder</h3>
+                            <div class="con">
+                                {{tile.user_id.first_name}} {{tile.user_id.last_name}}<br>
+                                {{tile.user_id.email}}
+                                </div>
+                            <div class="description">
+                              Budget
+                            </div>
+                            <p>
+                            {{tile.investment_ticket_size_min}}$ - {{tile.investment_ticket_size_min}}$
+                            </p>
+                            <div class="description">Sector
+                                  </div>
+                          </div>
+            </a>
+            </mat-grid-tile>
+          </div>
+        </mat-grid-list>
+        <button class="showmore" mat-button>Show more</button>
+      </mat-card>
+      <mat-card *ngIf="selected=='Company'">
+        <mat-grid-list cols="3" row="2" rowHeight="300px">
+          <div class="select">
+            <mat-grid-tile *ngFor="let tile of company" [style.background]="tile.color">
+                <a (click)="readMore(tile._id,tile.sector,tile.description,tile.industry_type,tile.maximum_fund,tile.current_capital,tile.current_status)">
+                        <div class="content">
+                                <div class="image">
+                                  <img src="../../../../assets/images/Image_1.png">
+                                </div>
+                                <h3>Founder</h3>
+                                <div class="con">
+                                    {{tile.user_id.first_name}} {{tile.user_id.last_name}}<br>
+                                    {{tile.user_id.email}}
+                                    </div>
+                                <div class="description">
+                                  Budget
+                                </div>
+                                {{tile.investment_ticket_size_min}}$ - {{tile.investment_ticket_size_min}}$
+                                <div class="description">Sector
+                                      </div>
+                              </div>
+            </a>
+            </mat-grid-tile>
+          </div>
+        </mat-grid-list>
+      
+        <button class="showmore" mat-button>Show more</button>
+      </mat-card>

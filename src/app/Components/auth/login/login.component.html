@@ -12,7 +12,7 @@
         </mat-card-header>
         <form [formGroup]="ownerForm" autocomplete="off" novalidate (ngSubmit)="createOwner(ownerForm.value)">
             <div class="example-container">
-                <label><mat-icon class="ic1">perm_identity</mat-icon> </label><span class="g"></span>
+                <label><mat-icon class="ic1">person</mat-icon> </label><span class="g"></span>
                 <mat-form-field>
                      <input matInput placeholder="Email" formControlName="email">
                 </mat-form-field>
@@ -36,7 +36,7 @@
                     Remember me
                     </div>
                   </mat-checkbox><span class="gapd"></span>
-                  <mat-label class="forget">Forget password?</mat-label>
+                  <a routerLink="/forgetPassword"><mat-label class="forget">Forget password?</mat-label></a>
     
                 </mat-card-actions>
               </div>

@@ -1,0 +1,50 @@
+mat-grid-tile{
+    width:70%;
+}
+.content h3{
+    opacity: 0.5;
+    color: #4d4f5c;
+    font-family: "Source Sans Pro";
+    font-size: 12px;
+    font-weight: 400;
+}
+.content p{
+    font-size: 14px;
+    font-family: 'Times New Roman';
+}
+.title{
+color: #43425d;
+font-family: "Source Sans Pro";
+font-size: 19px;
+font-weight: 400;
+/* line-height: 27px; */
+font-family: "Segoe UI";
+font-weight: 400;
+}
+.description{
+    color: #4d4f5c;
+    font-family: "Source Sans Pro";
+    font-size: 14px;
+    font-family: "Segoe UI"; 
+}
+h2{
+height: 41px;
+color: #43425d;
+font-family: "Source Sans Pro";
+font-size: 28px;
+font-weight: 400;
+line-height: 40px;
+font-family: "Segoe UI";
+font-weight: 400;
+padding-left: 10px;
+}
+.showmore{
+    margin-left: 40%;
+}
+.selector{
+    margin-top: 40px;
+    padding-left: 70%;
+}
+.con{
+    font-size: 12px;
+}

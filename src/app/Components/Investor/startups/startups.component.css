@@ -1,6 +1,45 @@
-mat-paginator{
-    padding-top: 70px;
-}
-.image{
-    padding-top: 12px;
-}
+.kal {
+    padding-top: 50px;
+  }
+  
+  table {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 500px;
+  }
+  
+  th.mat-header-cell {
+    text-align: left;
+    max-width: 70px;
+    background-color: #f4f4f5;
+    font-size: 12px;
+    font-style: bold;
+  }
+  
+  th.mat-cell {
+    max-width: 50px;
+  }
+  
+  .create {
+    float: right;
+    margin-right: 100px;
+    width: 140px;
+    height: 40px;
+    border: 1px solid #163651;
+    border-radius: 9px;
+    background-color: #163651;
+    color: #ffffff;
+  }
+  
+  .example-card {
+    margin-top: 60px;
+    margin-left: 1.7%;
+    width: 94%;
+    height: 100%;
+  }
+  
+  .mat-17 {
+    color: #0c538d;
+  }
+  

@@ -10,60 +10,31 @@ import { project } from '../Model/project';
   providedIn: 'root'
 })
 export class StartupProfileService {
+  apiURL="https://fierce-retreat-89553.herokuapp.com/v1";
+
   constructor(private http: HttpClient) { }
   createProfile(profile: startupprofile): Observable<any> {
     const profileInfo = JSON.stringify(profile);
-    const httpOptions = {
-      headers: new HttpHeaders(
-        {
-
-          'Content-Type': 'application/json'
-        })
-    }
-    return this.http.post('https://fierce-retreat-89553.herokuapp.com/v1/startup-profile', profileInfo, httpOptions)
+    return this.http.post(`${this.apiURL}/startup-profile`, profileInfo)
   }
   getProfileInfo(): Observable<any> {
-    const httpOptions = {
-      headers: new HttpHeaders(
-        {
-
-          'Content-Type': 'application/json'
-        })
-    }
-    return this.http.get('https://fierce-retreat-89553.herokuapp.com/v1/startup-profile', httpOptions)
+    return this.http.get(`${this.apiURL}/startup-profile`)
   }
   updateProfile(profile: startupprofile): Observable<any> {
     const profileInfo = JSON.stringify(profile);
-    const httpOptions = {
-      headers: new HttpHeaders(
-        {
-
-          'Content-Type': 'application/json'
-        })
-    }
-    return this.http.put('https://fierce-retreat-89553.herokuapp.com/v1/startup-profile', profileInfo, httpOptions)
+    return this.http.put(`${this.apiURL}/startup-profile`, profileInfo)
   }
 
   createProject(projects: project): Observable<any> {
     const project = JSON.stringify(projects);
-    const httpOptions = {
-      headers: new HttpHeaders(
-        {
-
-          'Content-Type': 'application/json'
-        })
-    }
-    return this.http.post('https://fierce-retreat-89553.herokuapp.com/v1/startup-project', project, httpOptions);
+    return this.http.post(`${this.apiURL}/startup-project`, project);
 
   }
   getProject(): Observable<any> {
-    const httpOptions = {
-      headers: new HttpHeaders(
-        {
-
-          'Content-Type': 'application/json'
-        })
-    }
-    return this.http.get('https://fierce-retreat-89553.herokuapp.com/v1/startup-project/user', httpOptions);
+  
+    return this.http.get(`${this.apiURL}/startup-project/user`);
+  }
+  getAllInvestors():Observable<any>{
+    return this.http.get(`${this.apiURL}/investors/all`)
   }
 }

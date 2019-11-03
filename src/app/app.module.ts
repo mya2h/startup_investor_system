@@ -29,7 +29,6 @@ import { StartupsExploreComponent } from './Components/startups/startups-explore
 import { StartupsProfileComponent } from './Components/startups/startups-profile/startups-profile.component';
 import { ExploreallComponent } from './Components/dashboard/exploreall/exploreall.component';
 import { StartupallComponent } from './Components/dashboard/startupall/startupall.component';
-import { LogComponent } from './Components/auth/log/log.component';
 import { TokenInterceptorService } from './Services/token-interceptor.service';
 import { ProjectComponent } from './Components/startups/project/project.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -44,6 +43,9 @@ import { VirtualScrollerModule } from 'ngx-virtual-scroller';
 import { ProjectDetailComponent } from './Components/Investor/project-detail/project-detail.component';
 import { StartupdescriptionComponent } from './Components/Investor/startupdescription/startupdescription.component';
 import { ProjectdetailComponent } from './Components/startups/projectdetail/projectdetail.component';
+import { ForgetPasswordComponent } from './Components/auth/forget-password/forget-password.component';
+import { ResetpasswordComponent } from './Components/auth/resetpassword/resetpassword.component';
+import { InvestordetailComponent } from './Components/startups/investordetail/investordetail.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,6 @@ import { ProjectdetailComponent } from './Components/startups/projectdetail/proj
     StartupsProfileComponent,
     ExploreallComponent,
     StartupallComponent,
-    LogComponent,
     ProjectComponent,
     ViewprojectComponent,
     SuccessDialogComponent,
@@ -75,7 +76,10 @@ import { ProjectdetailComponent } from './Components/startups/projectdetail/proj
     TrialComponent,
     ProjectDetailComponent,
     StartupdescriptionComponent,
-    ProjectdetailComponent
+    ProjectdetailComponent,
+    ForgetPasswordComponent,
+    ResetpasswordComponent,
+    InvestordetailComponent
   ],
 
   imports: [

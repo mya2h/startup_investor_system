@@ -50,7 +50,8 @@ export class InvestorProfileComponent implements OnInit {
   haveMade: ICheckBoxItem[] = [];
   checkedList = [];
   @ViewChild('ref', { static: true }) ref;
-
+  min:number
+  max:number
   wantToMake: ICheckBoxItem[] = [];
   public ownerForm: FormGroup;
   public array: FormArray
@@ -74,10 +75,26 @@ export class InvestorProfileComponent implements OnInit {
 
 
 
-  }
+  }  
   public createOwner = (ownerFormValue) => {
 
-    // const final = ownerFormValue.myChoices.map()
+   if(ownerFormValue.ticketsize=="val1"){
+    this.min = 10
+    this.max = 50000
+    console.log(this.min);
+   }
+   if(ownerFormValue.ticketsize=="val2"){
+    this.min = 50000
+    this.max = 100000
+   }
+   if(ownerFormValue.ticketsize=="val3"){
+    this.min = 100000
+    this.max = 500000
+   }
+   if(ownerFormValue.ticketsize=="val4"){
+    this.min = 500000
+    this.max = 1000000
+  }
     const profile: investorProfile = {
       type: ownerFormValue.option,
       country: ownerFormValue.country,
@@ -86,8 +103,8 @@ export class InvestorProfileComponent implements OnInit {
       type_of_investoments_made_before: ["JDSFGDF"],
       type_of_investoments_planning_to_make: ["dsjghdfg"],
       stage_of_startup: ownerFormValue.startupStage,
-      investment_ticket_size_min: ownerFormValue.ticketsize,
-      investment_ticket_size_max: ownerFormValue.preferredticketsize,
+      investment_ticket_size_min:this.min,
+      investment_ticket_size_max: this.max,
       investment_thesis: ownerFormValue.thesis
     }
     this.profile.createProfile(profile).subscribe(data => {

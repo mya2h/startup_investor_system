@@ -18,7 +18,8 @@ import { StartupallComponent } from '../app/Components/dashboard/startupall/star
 import { ProfileComponent } from '../app/Components/dashboard/profile/profile.component';
 import { ProjectComponent } from '../app/Components/startups/project/project.component';
 import { from } from 'rxjs';
-
+import {ForgetPasswordComponent} from '../app/Components/auth/forget-password/forget-password.component'
+import {ResetpasswordComponent} from '../app/Components/auth/resetpassword/resetpassword.component'
 
 const routes: Routes = [
   { path: '', component: LoginComponent, canActivate: [LoginGuard] },
@@ -32,7 +33,9 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent }
     ]
   },
-  { path: 'signup', component: SignupComponent }
+  { path: 'signup', component: SignupComponent },
+  { path: 'forgetPassword',component:ForgetPasswordComponent},
+  { path: 'resetpassword/:token',component:ResetpasswordComponent}
 
 ]
 

@@ -8,6 +8,8 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import { ProjectComponent } from '../../startups/project/project.component';
 import {ProjectDetailComponent} from '../project-detail/project-detail.component';
 export interface DialogData{
+   id:string,
+   sector:string,
    description:string,
    industryType:string,
    fundNeed:Number,
@@ -53,17 +55,18 @@ export class ExploreComponent implements OnInit {
   console.log("my value",this.selectedDay);
   return this.selectedDay;
 }
-openChangePasswordForm(description,industryType,fundNeed,capital,status){
+readMore(id,sector,description,industryType,fundNeed,capital,status){
   const dialogRef = this.dialog.open(ProjectDetailComponent, {
     width: '500px',
     data: {
+      id:id,
+      sector:sector,
       description:description,
       industryType:industryType,
       fundNeed:fundNeed,
       capital:capital,
       status:status}
   });
-console.log(description);
   dialogRef.afterClosed().subscribe(result => {
 
   });

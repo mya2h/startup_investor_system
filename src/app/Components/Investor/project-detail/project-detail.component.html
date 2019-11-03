@@ -5,34 +5,33 @@
      <p>
        {{data.description}}
      </p>
-    </mat-card>
      <div class="title">Industry type?</div>
-     <mat-card class="example-card">
      <p>
        {{data.industryType}}
      </p>
-    </mat-card>
      <div class="title">Current status?</div>
-     <mat-card class="example-card">
      <p>
        {{data.status}}
      </p>
-    </mat-card>
      <div class="title">Fund we need?</div>
-     <mat-card class="example-card">
      <p>
        {{data.fundNeed}}
      </p>
-    </mat-card>
      <div class="title">Capital we have?</div>
-     <mat-card class="example-card">
      <p>
        {{data.capital}}
      </p>
     </mat-card>
+    <div class="title">Do u want to invest on this project?</div>
+        <div class="midumtitle">Please choose investment type</div>
+      <select #investType class="investtype">
+        <option value="Fund">Fund</option>
+        <option value="Work together">Work together</option>
+      </select>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button class="connect">Connect</button>
+      <button mat-button class="connect" (click) = "connectMe(data.id,investType.value)">Connect</button>
+      <!-- <button *ngIf="success">Success</button> -->
       <button mat-button>Cancel</button>
     </mat-card-actions>
   </mat-card>
