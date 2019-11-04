@@ -11,6 +11,9 @@
               </div>
               </mat-card-title>
             </mat-card-header>
+            <div id="errorMsg" *ngIf="errorMessage">
+                <span>{{errorMessage}}</span>
+            </div>
             <form [formGroup]="registerForm" autocomplete="off" novalidate (ngSubmit)="createOwner(registerForm.value)">
                 <div class="example-container">
                   

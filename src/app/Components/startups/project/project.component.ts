@@ -19,7 +19,7 @@ export interface Subject {
   styleUrls: ['./project.component.css']
 })
 export class ProjectComponent implements OnInit {
-  durationInSeconds = 5;
+  durationInSeconds = 3;
   visible = true;
   selectable = true;
   removable = true;
