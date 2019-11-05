@@ -34,13 +34,16 @@ export class ViewprojectComponent implements OnInit {
       this.dataMessage.push(data.message['startup']);
       this.dataMessage.push(data.message['all_progress']);
     })
-    console.log(this.dataMessage);
+    console.log("my message",this.dataMessage);
     // console.log("i got my id",this.id)
     // console.log("how about this",this.projectDetail);
   }
-  addProgress(){
+  addProgress(mine){
     this.dialog.open(AddProgressComponent,{
-      width: '250px'
+      width: '250px',
+      data: {
+        id:mine
+      }
     })
   }
 }

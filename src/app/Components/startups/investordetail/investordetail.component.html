@@ -1,0 +1,31 @@
+<mat-card>
+        <mat-grid-list cols="2" rowHeight="2:1">
+            <mat-grid-tile class="">
+                    <img id="currentPhoto" src="SomeImage.jpg" onerror="this.onerror=null; this.src='../../../../assets/images/replace.jpg'" alt="" width="100" height="100">
+
+            </mat-grid-tile>
+                <mat-grid-tile>
+                        <!-- <p>Sector I want to invested on</p> -->
+                        <br>
+                        {{data.sector}}
+                        <br/>
+                       <!-- <p>Thesis</p> -->
+                       <br>
+                       {{data.thesis}}
+                       <!-- <p>Investement I have made</p> -->
+                       <br>
+                       <div class="stage" *ngFor="let made of data.stage">
+                            {{made}}
+                       </div>
+                       <div class="made" *ngFor="let made of data.made">
+                            {{made}}
+                       </div>
+                       <div class="make" *ngFor="let made of data.make">
+                            {{made}}
+                       </div>
+
+                </mat-grid-tile>
+                
+          </mat-grid-list>
+          <button mat-button>Connect</button>
+    </mat-card>

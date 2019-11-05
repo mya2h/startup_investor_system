@@ -1,14 +1,36 @@
 <div class="view" >
+  <div class="loading" *ngIf="dataMessage.length==0">
+    loading please wait
+  </div>
+  <div class="getdata" *ngIf="dataMessage.length!=0">
     <div class="about">
         <h2>{{dataMessage[0].name}}</h2>
         <p>{{dataMessage[0].description}}</p>
-        <button class="progress" mat-button (click)="addProgress()">Progress report</button>
+        <button class="progress" mat-button (click)="addProgress(dataMessage[0]._id)">Progress report</button>
         </div>
         <mat-card>
-          <mat-horizontal-stepper>
+          <mat-horizontal-stepper >
             <mat-step [stepControl]="firstFormGroup">
                 <ng-template matStepLabel><span>${{dataMessage[0].maximum_fund}}</span><br>Total revenue</ng-template>
-            </mat-step>
+                <p>Project Progress</p>
+               <div class="prog" *ngIf="dataMessage[1].length!=0">
+                 <!-- {{dataMessage[1].message.title}} -->
+                <mat-list role="list" *ngFor="let progress of dataMessage[1]">
+                    <mat-list-item role="listitem">
+                      Progress added date
+                        {{progress.created_at}}
+                          title
+                      {{progress.title}}
+                      description
+                      {{progress.description}}
+                      <!-- <a href="{{progress.report_file}}">Download the PDF</a>
+                      <a href="'progress.report_file'">Download the PDF</a> -->
+                      <a href={{progress.report_file}}>Download the PDF</a>
+                  
+                    </mat-list-item>
+                  </mat-list>
+                </div>  
+              </mat-step>
             <mat-step [stepControl]="secondFormGroup">
                 <ng-template matStepLabel><span>20</span><br>Investors</ng-template>
             </mat-step>
@@ -29,6 +51,7 @@
             </mat-step>
           </mat-horizontal-stepper>
         </mat-card>
+      </div>
 </div>
 
 

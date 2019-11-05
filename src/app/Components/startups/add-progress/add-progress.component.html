@@ -1,15 +1,20 @@
- 
-<div  class="upload-drop-zone">
-        Just drag and drop files here
-    </div>
-     
-     
-    <div style="width: 500px">
-        <mat-file-upload-queue #fileUploadQueue
-            [fileAlias]="'file'"
-            [httpUrl]="'http://localhost:8180/jax-rs-jersey-application-sample'" multiple>
-        
-            <mat-file-upload [file]="file" [id]="i" *ngFor="let file of fileUploadQueue.files; let i = index"></mat-file-upload>
-        </mat-file-upload-queue>
-    </div>
-     
+    <form [formGroup]="progress" autocomplete="off" novalidate (ngSubmit)="progressAdd(progress.value,data.id)">
+            <div class="example-container">
+
+            
+                <mat-form-field>
+                    <input matInput  placeholder="Title" formControlName="title">
+                    <!-- {{data.id}} -->
+                </mat-form-field>
+                <br>
+
+                <mat-form-field>
+                    <textarea matInput  placeholder="Description" formControlName="description"></textarea>
+                </mat-form-field>
+                <input type="file"
+           id="file" accept="application/pdf"
+           (change)="handleFileInput($event.target.files)">
+                <br>
+                <button class="signup" mat-button id="signup" [disabled]="!progress.valid">Post report</button>
+              </div>
+              </form>
