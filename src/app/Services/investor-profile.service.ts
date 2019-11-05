@@ -29,4 +29,7 @@ export class InvestorProfileService {
   projectInvestedOn():Observable<any>{
     return this.http.get(`${this.apiURL}/startup-investor/investor/verified`)
   }
+  unverfiedRequests():Observable<any>{
+    return this.http.get(`${this.apiURL}/startup-investor/investor/unverified`)
+  }
 }

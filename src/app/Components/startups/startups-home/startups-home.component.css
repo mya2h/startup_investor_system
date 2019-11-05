@@ -1,0 +1,33 @@
+.home{
+    padding-top: 120px;
+}
+.chart-wrapper{
+    width:40%;
+    padding-top: 60px;
+}
+.count{
+    margin-top: 70px;
+    margin-left: 100px;
+    float: left;
+}
+.count1{
+    float: left;
+    width: 250px;
+    height: 120px;
+    background-color: #5e5e5e
+}
+.count2{
+    float: left;
+    width: 250px;
+    height: 120px;
+    background-color: rgb(184, 189, 189)
+}
+.count3{
+    float: left;
+    width: 250px;
+    height: 120px;
+    background-color: rgb(161, 161, 161)
+}
+.txt{
+    padding-left: 10px;
+}

@@ -43,7 +43,7 @@ export class StartupsStartupsComponent implements OnInit, AfterViewInit {
   }
 
   public redirectToDetails = (id: string) => {
-
+    
   }
 
   public redirectToUpdate = (id: string) => {

@@ -1,0 +1,29 @@
+.action{
+    padding-left: 60%;
+}
+.img{
+    width: 50%
+}
+.example-card{
+   padding-left: 30%
+}
+a{
+    text-decoration: none;
+    text-decoration-color: none;
+}
+.kal {
+    padding-top: 50px;
+  }
+  
+  table {
+
+  }
+/*   
+  th.mat-header-cell {
+    text-align: left;
+    max-width: 70px;
+    background-color: #f4f4f5;
+    font-size: 12px;
+    font-style: bold;
+  } */
+

@@ -101,4 +101,22 @@ a:link{
 .request{
     padding-right: 19px;
     background-color: #f4f4f5;
+
 }
+.mat-menu-panel.notifications-dropdown {
+    max-width:none;
+    width: 100% !important; 
+    margin-left: -8px;
+    margin-top: 24px;
+    overflow: visible;
+}
+
+.notifications-dropdown{
+    width: 700px;;
+}
+::ng-deep .mat-menu-panel {
+    padding: 0 10px!important;
+    width: 100%!important;
+  }
+  
+  

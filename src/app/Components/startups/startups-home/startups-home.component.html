@@ -1,4 +1,26 @@
-
-askdjhkajsd
-askdjhkajsdashgd
-amshdvajs
+<div class="count">
+        <div class="count1">
+                <ngx-counter [countValue]=0 [speed]=10 size="big" limit=10 theme="gray"></ngx-counter>
+                <br>
+                <span class="txt">Startups</span> 
+        </div>
+        <div class="count2">
+                <ngx-counter [countValue]=0 [speed]=10 size="big" limit=30 theme="gray"></ngx-counter>
+                <br>
+                <span class="txt"> Investors</span>
+        </div>
+        <div class="count3">
+                <ngx-counter [countValue]=0 [speed]=10 size="big" limit=50 theme="gray"></ngx-counter>
+                <br>
+                <span class="txt"> Connections</span>
+        </div>
+        </div>
+        
+        
+<div class="chart-wrapper">
+        <canvas baseChart 
+        [data]="doughnutChartData"
+        [labels]="doughnutChartLabels"
+        [chartType]="doughnutChartType">
+      </canvas>
+    </div>

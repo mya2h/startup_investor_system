@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ChartType } from 'chart.js';
+import { MultiDataSet, Label } from 'ng2-charts';
 @Component({
   selector: 'app-startups-home',
   templateUrl: './startups-home.component.html',
@@ -11,5 +12,10 @@ export class StartupsHomeComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
+  doughnutChartLabels: Label[] = ['Technology', 'Agriculture', 'Fashion'];
+  doughnutChartData: MultiDataSet = [
+    [55, 25, 0]
+  ];
+  doughnutChartType: ChartType = 'doughnut';
 }

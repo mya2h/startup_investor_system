@@ -1,0 +1,51 @@
+<div class="all">
+  <div class="create">
+    <button mat-button (click)="openProjectDialog()">Create Project</button>
+  </div>
+  <mat-card class="example-card">
+    <div fxLayout fxLayoutAlign="center center" class="filter">
+      <mat-form-field fxFlex="40%">
+        <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Search">
+      </mat-form-field>
+    </div>
+    <table mat-table [dataSource]="dataSource" matSort>
+     <div class="table">
+      <ng-container matColumnDef="investment_type">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+        <td mat-cell *matCellDef="let element">
+          <img class="img" src="../../../../assets/images/Image_1.png">
+          <div class="together">
+           {{element.investor_id.first_name}} {{element.investor_id.last_name}}
+          </div> 
+           <br>
+          <div class="two">
+           <a>{{element.investment_type}}</a>
+           <br>
+           <a [routerLink]="['/dashboard/startups/projectDetail', element.startup_id._id]">{{element.startup_id.name}}</a>
+          </div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="confirm">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-button color="accent" (click)="confirmUser(element.startup_id._id,element.investor_id._id)">
+             Confirm
+          </button>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-button color="warn" (click)="redirectToDelete(element.id)">
+            Delete
+          </button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </div> 
+    </table>
+    <mat-paginator [pageSize]="5" [pageSizeOptions]="[2, 4, 6, 10, 20]">
+    </mat-paginator>
+  </mat-card>
+</div>

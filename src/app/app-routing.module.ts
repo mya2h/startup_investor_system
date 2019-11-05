@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { InvestorLandComponent } from '../app/Components/Investor/investor-land/investor-land.component';
 import { LoginComponent } from '../app/Components/auth/login/login.component'
@@ -20,6 +20,8 @@ import { ProjectComponent } from '../app/Components/startups/project/project.com
 import { from } from 'rxjs';
 import {ForgetPasswordComponent} from '../app/Components/auth/forget-password/forget-password.component'
 import {ResetpasswordComponent} from '../app/Components/auth/resetpassword/resetpassword.component'
+import {ViewprojectComponent} from '../app/Components/startups/viewproject/viewproject.component'
+import {RequestsComponent} from '../app/Components/dashboard/requests/requests.component'
 
 const routes: Routes = [
   { path: '', component: LoginComponent, canActivate: [LoginGuard] },
@@ -30,9 +32,13 @@ const routes: Routes = [
       { path: 'inbox', component: InboxComponent },
       { path: 'startups', component: StartupallComponent },
       { path: 'explore', component: ExploreallComponent },
-      { path: 'profile', component: ProfileComponent }
+      { path: 'profile', component: ProfileComponent },
+      { path:'requests',component:RequestsComponent},
+      {path:'startups/projectDetail/:id',component:ViewprojectComponent},
     ]
   },
+
+ 
   { path: 'signup', component: SignupComponent },
   { path: 'forgetPassword',component:ForgetPasswordComponent},
   { path: 'resetpassword/:token',component:ResetpasswordComponent}

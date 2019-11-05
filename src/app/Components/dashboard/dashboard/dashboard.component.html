@@ -40,7 +40,7 @@
                 </mat-form-field>
                </span>
                <div class="padright">
-                  <mat-icon class="request">people</mat-icon>
+                <a [matMenuTriggerFor]="request"> <mat-icon class="request">people</mat-icon></a> 
                   <span class="gap"></span>
                   <mat-icon class="new" matBadge="15" matBadgeColor="warn">notifications</mat-icon>
                 </div>
@@ -55,9 +55,12 @@
          Profile</button>
         </a>
          <button mat-menu-item (click)="logservice.logout()">Logout</button>
-       
+         <!-- app-requestdropdown -->
         
         </mat-menu>
+        <mat-menu #request="matMenu" class="dashboard-toolbar-mat-menu-panel">
+ <app-requestdropdown></app-requestdropdown>
+            </mat-menu>
             </mat-toolbar-row>
           </mat-toolbar>
           <div class="changed">

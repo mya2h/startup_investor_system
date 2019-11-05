@@ -46,7 +46,12 @@ import { ProjectdetailComponent } from './Components/startups/projectdetail/proj
 import { ForgetPasswordComponent } from './Components/auth/forget-password/forget-password.component';
 import { ResetpasswordComponent } from './Components/auth/resetpassword/resetpassword.component';
 import { InvestordetailComponent } from './Components/startups/investordetail/investordetail.component';
-
+import { AddProgressComponent } from './Components/startups/add-progress/add-progress.component';
+import { NotificationComponent } from './Components/dashboard/notification/notification.component';
+import { RequestsComponent } from './Components/dashboard/requests/requests.component';
+import { RequestdropdownComponent } from './Components/dashboard/requestdropdown/requestdropdown.component';
+import { NotificationdropdownComponent } from './Components/dashboard/notificationdropdown/notificationdropdown.component';
+import { ChartsModule } from 'ng2-charts';
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,7 +84,12 @@ import { InvestordetailComponent } from './Components/startups/investordetail/in
     ProjectdetailComponent,
     ForgetPasswordComponent,
     ResetpasswordComponent,
-    InvestordetailComponent
+    InvestordetailComponent,
+    AddProgressComponent,
+    NotificationComponent,
+    RequestsComponent,
+    RequestdropdownComponent,
+    NotificationdropdownComponent
   ],
 
   imports: [
@@ -91,6 +101,7 @@ import { InvestordetailComponent } from './Components/startups/investordetail/in
     BrowserAnimationsModule,
     ToastrModule,
     MatBadgeModule,
+    ChartsModule,
     FlexLayoutModule,
     MatCardModule,
     MatInputModule,
@@ -111,6 +122,7 @@ import { InvestordetailComponent } from './Components/startups/investordetail/in
     MatToolbarModule,
     MatCheckboxModule,
     MatGridListModule,
+    // MatFileUploadModule,
     MatIconModule,
     MatMenuModule,
     VirtualScrollerModule,
@@ -129,6 +141,7 @@ import { InvestordetailComponent } from './Components/startups/investordetail/in
   bootstrap: [AppComponent],
   entryComponents: [
     ViewprojectComponent,
+    AddProgressComponent,
     SuccessDialogComponent,
     ErrorDialogComponent,
     ProjectComponent,
