@@ -1,0 +1,59 @@
+<div class="view" >
+        <div class="loading" *ngIf="dataMessage.length==0">
+          loading please wait
+        </div>
+        <div class="getdata" *ngIf="dataMessage.length!=0">
+          <div class="about">
+              <h2>{{dataMessage[0].name}}</h2>
+              <p>{{dataMessage[0].description}}</p>
+              </div>
+              <mat-card>
+                <mat-horizontal-stepper >
+                  <mat-step [stepControl]="firstFormGroup">
+                      <ng-template matStepLabel><span>${{dataMessage[0].maximum_fund}}</span><br>Total revenue</ng-template>
+                      <p>Project Progress</p>
+                     <div class="prog" *ngIf="dataMessage[1].length!=0">
+                       <!-- {{dataMessage[1].message.title}} -->
+                      <mat-list role="list" *ngFor="let progress of dataMessage[1]">
+                          <mat-list-item role="listitem">
+                            Progress added date
+                              {{progress.created_at}}
+                                title
+                            {{progress.title}}
+                            description
+                            {{progress.description}}
+                            <!-- <a href="{{progress.report_file}}">Download the PDF</a>
+                            <a href="'progress.report_file'">Download the PDF</a> -->
+                            <a href={{progress.report_file}}>Download the PDF</a>
+                        
+                          </mat-list-item>
+                        </mat-list>
+                      </div>  
+                    </mat-step>
+                  <mat-step [stepControl]="secondFormGroup">
+                      <ng-template matStepLabel><span>20</span><br>Investors</ng-template>
+                  </mat-step>
+                  <mat-step>
+                    <ng-template matStepLabel>{{dataMessage[0].team_members.length}}<br>Team</ng-template>
+                    <button class="addmember" mat-button (click)="addTeam(dataMessage[0]._id)"><mat-icon>add</mat-icon></button>
+                    <mat-list role="list" *ngFor="let member of dataMessage[0].team_members">
+                        <mat-list-item role="listitem" >
+                            <div class="separate">
+                        <img src="../../../../assets//images/Image_1.png">
+                        <br>
+                        {{member.first_name}} {{member.last_name}}
+                        <br>
+                         {{member.email}}
+                        <button (click)="remove(dataMessage[0]._id,member.email)"><mat-icon>delete</mat-icon></button> 
+                            </div>
+                        </mat-list-item>
+                      </mat-list>
+                      
+                  </mat-step>
+                </mat-horizontal-stepper>
+              </mat-card>
+            </div>
+      </div>
+      
+      
+      

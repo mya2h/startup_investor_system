@@ -34,7 +34,7 @@
       <ng-container matColumnDef="details">
         <th mat-header-cell *matHeaderCellDef> Details </th>
         <td mat-cell *matCellDef="let element">
-          <button mat-icon-button (click)="openDialog()">
+          <button mat-icon-button  [routerLink]="['/dashboard/startups/invested', element._id]">
             <mat-icon class="mat-17">reorder</mat-icon>
           </button>
         </td>

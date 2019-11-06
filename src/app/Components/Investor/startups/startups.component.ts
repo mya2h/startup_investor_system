@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { PageEvent } from '@angular/material';
 import {InvestorProfileService} from '../../../Services/investor-profile.service'
 import { investorProfile } from 'src/app/Model/investorProfile';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { project } from '../../../Model/project';
 import { DataSource } from '@angular/cdk/table';
@@ -39,6 +40,7 @@ ngAfterViewInit(): void {
   public doFilter = (value: string) => {
     this.dataSource.filter = value.trim().toLocaleLowerCase();
   }
+ 
 }
 
 

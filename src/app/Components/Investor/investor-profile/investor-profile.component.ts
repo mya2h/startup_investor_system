@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { investorProfile } from '../../../Model/investorProfile';
 import { InvestorProfileService } from '../../../Services/investor-profile.service'
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ErrorService } from '../../../Services/error.service';
 interface ICheckBoxItem {
   selected: boolean;
   name: string;
@@ -14,6 +16,7 @@ interface ICheckBoxItem {
   styleUrls: ['./investor-profile.component.css']
 })
 export class InvestorProfileComponent implements OnInit {
+  private dialogConfig;
   investmentHaveMade = [{
     name: 'Grant',
     value: 'Grant',
@@ -55,7 +58,11 @@ export class InvestorProfileComponent implements OnInit {
   wantToMake: ICheckBoxItem[] = [];
   public ownerForm: FormGroup;
   public array: FormArray
-  constructor(private profile: InvestorProfileService) { }
+  constructor(
+    private profile: InvestorProfileService,
+    private _snackBar:MatSnackBar,
+    private errorService:ErrorService
+    ) { }
 
   ngOnInit() {
     this.ownerForm = new FormGroup({
@@ -65,7 +72,6 @@ export class InvestorProfileComponent implements OnInit {
       investon: new FormControl(''),
       target: new FormControl(''),
       ticketsize: new FormControl('', [Validators.maxLength(20)]),
-      preferredticketsize: new FormControl(''),
       thesis: new FormControl(''),
       startupStage: new FormArray([]),
       myChoices: new FormArray([]),
@@ -115,9 +121,15 @@ export class InvestorProfileComponent implements OnInit {
       data => {
         ownersList.push(data.toString());
         console.log(data);
-      }
-    )
-    console.log(typeof ([""]));
+        this._snackBar.open("profile updated successfully", "", {
+          duration: 2000,
+        });
+      }, (error => {
+        this.errorService.dialogConfig = { ...this.dialogConfig };
+        this.errorService.handleError(error);
+        console.log(error);
+        console.log(error.error.message.message);
+      }))
 
   }
   onCheckChange(event) {

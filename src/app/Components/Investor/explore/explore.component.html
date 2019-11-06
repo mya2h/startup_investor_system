@@ -69,7 +69,7 @@
   <mat-grid-list cols="3" row="2" rowHeight="300px">
     <div class="select">
       <mat-grid-tile *ngFor="let tile of agriculture" [style.background]="tile.color">
-          <a (click)="readMore(tile._id,tile.sector,tile.description,tile.industry_type,tile.maximum_fund,tile.current_capital,tile.current_status)">
+          <a class="projectdetail" (click)="readMore(tile._id,tile.sector,tile.description,tile.industry_type,tile.maximum_fund,tile.current_capital,tile.current_status)">
         <div class="content">
           <div class="title">
             {{tile.name}}

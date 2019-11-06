@@ -30,7 +30,10 @@
       </select>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button class="connect" (click) = "connectMe(data.id,investType.value)">Connect</button>
+      <button mat-button class="connect" id ="log" (click) = "connectMe(data.id,investType.value)">
+          <span *ngIf="success">Request sent</span>
+          <span  *ngIf="!success">Connect</span> 
+        </button>
       <!-- <button *ngIf="success">Success</button> -->
       <button mat-button>Cancel</button>
     </mat-card-actions>

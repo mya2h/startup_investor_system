@@ -54,3 +54,14 @@ padding-left: 10px;
     margin-top: 40px;
     padding-left: 70%;
 }
+a:hover{
+    cursor: pointer;
+    background: #163651;
+    width: 200px;
+    color: aliceblue;
+    padding-left: 40px;
+}
+
+a title:hover{
+    color: aliceblue;
+}

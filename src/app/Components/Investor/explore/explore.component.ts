@@ -32,23 +32,26 @@ export class ExploreComponent implements OnInit {
    constructor(private investorProfile:InvestorProfileService,private dialog: MatDialog) { }
    ngOnInit() {
      console.log(this.selectedDay);
-    this.investorProfile.getStartupProject().subscribe(data=>{
-      
-      data.map(res=>{
-        // this.allProjects.push(res);
-        this.allProjects = Array.from(Object.keys(data), k=>data[k]);
-        // console.log(this.allProjects);
-       if(res.sector=="technology"){
-        this.technology.push(res);  
-       }
-       else if(res.sector="agriculture"){
-         this.agriculture.push(res);
-       }
-       console.log(this.agriculture);
-      })
-    })
-  
+   this.getAllStartups();
  
+ }
+ getAllStartups(){
+  this.investorProfile.getStartupProject().subscribe(data=>{
+      
+    data.map(res=>{
+      // this.allProjects.push(res);
+      this.allProjects = Array.from(Object.keys(data), k=>data[k]);
+      // console.log(this.allProjects);
+     if(res.sector=="technology"){
+      this.technology.push(res);  
+     }
+     else if(res.sector="agriculture"){
+       this.agriculture.push(res);
+     }
+     console.log(this.agriculture);
+    })
+  })
+
  }
  changeClient(value) {
   this.selectedDay=value;
@@ -68,7 +71,7 @@ readMore(id,sector,description,industryType,fundNeed,capital,status){
       status:status}
   });
   dialogRef.afterClosed().subscribe(result => {
-
+    this.getAllStartups();
   });
 }
 

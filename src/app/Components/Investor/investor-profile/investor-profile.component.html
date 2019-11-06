@@ -1,4 +1,4 @@
-<section fxLayoutAlign="center center">
+<section fxLayoutAlign="center center" class="all">
   <mat-card>
     <mat-card-title>Edit Profile</mat-card-title>
     <form [formGroup]="ownerForm" autocomplete="off" novalidate (ngSubmit)="createOwner(ownerForm.value)"
@@ -36,16 +36,17 @@
               </label>
             </div>
             <br>
-            <div class="discription">Types of investment you would like to make</div>
-            <div *ngFor="let choice of investmentWant;">
-              <label>
-                <input type="checkbox" [value]="choice" (change)="onInvestmentWant($event)" >
-                {{choice}}
-              </label>
-            </div>
+           
           </mat-step>
           startupStage
           <mat-step>
+              <div class="discription">Types of investment you would like to make</div>
+              <div *ngFor="let choice of investmentWant;">
+                <label>
+                  <input type="checkbox" [value]="choice" (change)="onInvestmentWant($event)" >
+                  {{choice}}
+                </label>
+              </div>
             <div class="discription">Stage of startups you target</div>
             <div *ngFor="let choice of startupStage;">
               <label>
@@ -71,8 +72,7 @@
         </mat-horizontal-stepper>
       </mat-card-content>
       <mat-card-actions align="center">
-        <button mat-raised-button color="primary" [disabled]="!ownerForm.valid">Edit Profile</button>
-        <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+        <button mat-raised-button [disabled]="!ownerForm.valid">Edit Profile</button>
       </mat-card-actions>
 
     </form>

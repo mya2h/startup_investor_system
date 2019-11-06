@@ -1,26 +1,50 @@
+.home{
+    padding-top: 120px;
+}
+.chart-wrapper{
+    width:50%;
+    padding-top: 100px;
+    padding-left: 50%;
+    /* margin-top: 200px; */
+}
 .count{
     margin-top: 70px;
-    margin-left: 100px;
+    margin-left: 70px;
     float: left;
 }
 .count1{
     float: left;
-    width: 250px;
+    width: 220px;
     height: 120px;
-    background-color: rgb(247, 247, 134)
+    padding-top: 30px;
+    padding-left: 50px;
+    color: aliceblue;
+    background-color: #5e5e5e
 }
 .count2{
     float: left;
-    width: 250px;
+    width: 220px;
+    padding-left: 50px;
+    padding-top: 30px;
     height: 120px;
-    background-color: rgb(114, 175, 175)
+    color: aliceblue;
+    background-color: rgb(184, 189, 189)
 }
 .count3{
     float: left;
-    width: 250px;
+    width: 220px;
+    padding-top: 30px;
+    padding-left: 50px;
+    color: aliceblue;
     height: 120px;
-    background-color: rgb(122, 108, 133)
+    background-color: rgb(161, 161, 161)
 }
 .txt{
     padding-left: 10px;
 }
+.separator{
+    padding-top: 230px;
+}
+/* .piechart{
+    margin-top: 50px;
+} */

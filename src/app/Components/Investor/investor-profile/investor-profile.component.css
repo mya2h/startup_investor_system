@@ -7,6 +7,7 @@
     margin-top: 40px;
   }
   .all{
+    margin-top: 50px;
     padding-left: 90px;
   }
   .example-container{
@@ -185,4 +186,7 @@ color: #ffffff;
 }
 .invest input{
   background: black;
+}
+button{
+  background-color:#163651 
 }
