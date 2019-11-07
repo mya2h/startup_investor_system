@@ -4,6 +4,8 @@ import {StartupProfileService} from '../../../Services/startup-profile.service';
 import {progress} from '../../../Model/progress'
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { DialogData } from '../../Investor/explore/explore.component';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {ErrorService} from '../../../Services/error.service';
 @Component({
   selector: 'app-add-progress',
   templateUrl: './add-progress.component.html',
@@ -11,9 +13,12 @@ import { DialogData } from '../../Investor/explore/explore.component';
 })
 export class AddProgressComponent implements OnInit {
   public progress:FormGroup;
+  private dialogConfig;
   constructor(
     public dialogRef: MatDialogRef<AddProgressComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    private _snackBar:MatSnackBar,
+    private errorService:ErrorService,
     private addProgress:StartupProfileService) { }
   fileToUpload: File = null;
   ngOnInit() {
@@ -34,9 +39,19 @@ export class AddProgressComponent implements OnInit {
       description:formvalue.description,
       report:this.fileToUpload
     }
+    console.log(prog);
     this.addProgress.addProgress(prog,id).subscribe(data=>{
       console.log(data);
+      this._snackBar.open("Progress successfully updated", "", {
+        duration: 2000,
+      });
+    },(error => {
+      // this.errorService.dialogConfig = { ...this.dialogConfig };
+      // this.errorService.handleError(error);
+      console.log(error);
+      // console.log(error.error.message.message);
     })
+    )
     
   }
   handleFileInput(files: FileList) {

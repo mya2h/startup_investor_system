@@ -42,7 +42,6 @@ import { TrialComponent } from './Components/startups/trial/trial.component';
 import { VirtualScrollerModule } from 'ngx-virtual-scroller';
 import { ProjectDetailComponent } from './Components/Investor/project-detail/project-detail.component';
 import { StartupdescriptionComponent } from './Components/Investor/startupdescription/startupdescription.component';
-import { ProjectdetailComponent } from './Components/startups/projectdetail/projectdetail.component';
 import { ForgetPasswordComponent } from './Components/auth/forget-password/forget-password.component';
 import { ResetpasswordComponent } from './Components/auth/resetpassword/resetpassword.component';
 import { InvestordetailComponent } from './Components/startups/investordetail/investordetail.component';
@@ -52,6 +51,9 @@ import { RequestsComponent } from './Components/dashboard/requests/requests.comp
 import { RequestdropdownComponent } from './Components/dashboard/requestdropdown/requestdropdown.component';
 import { NotificationdropdownComponent } from './Components/dashboard/notificationdropdown/notificationdropdown.component';
 import { ChartsModule } from 'ng2-charts';
+import { DeleteprojectComponent } from './Components/startups/deleteproject/deleteproject.component';
+import { AddTeamComponent } from './Components/startups/add-team/add-team.component';
+import { InvestedProjectDetailComponent } from './Components/Investor/invested-project-detail/invested-project-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,7 +83,6 @@ import { ChartsModule } from 'ng2-charts';
     TrialComponent,
     ProjectDetailComponent,
     StartupdescriptionComponent,
-    ProjectdetailComponent,
     ForgetPasswordComponent,
     ResetpasswordComponent,
     InvestordetailComponent,
@@ -89,7 +90,10 @@ import { ChartsModule } from 'ng2-charts';
     NotificationComponent,
     RequestsComponent,
     RequestdropdownComponent,
-    NotificationdropdownComponent
+    NotificationdropdownComponent,
+    DeleteprojectComponent,
+    AddTeamComponent,
+    InvestedProjectDetailComponent
   ],
 
   imports: [
@@ -142,10 +146,14 @@ import { ChartsModule } from 'ng2-charts';
   entryComponents: [
     ViewprojectComponent,
     AddProgressComponent,
+    AddTeamComponent,
+    ProjectDetailComponent,
     SuccessDialogComponent,
     ErrorDialogComponent,
+    InvestorProfileComponent,
     ProjectComponent,
-    ProjectDetailComponent
+    InvestordetailComponent,
+    DeleteprojectComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

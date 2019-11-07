@@ -5,6 +5,7 @@
               <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
               <td mat-cell *matCellDef="let element">
                 <img class="img" src="../../../../assets/images/Image_1.png">
+                <br>
                  {{element.investor_id.first_name}} {{element.investor_id.last_name}}
                  <br>
                 
@@ -16,19 +17,19 @@
             <ng-container matColumnDef="confirm">
               <th mat-header-cell *matHeaderCellDef></th>
               <td mat-cell *matCellDef="let element">
-                <button mat-button color="accent" (click)="confirmUser(element.startup_id._id,element.investor_id._id)">
+                <button mat-button class ="confirm" (click)="confirmUser(element.startup_id._id,element.investor_id._id)">
                    Confirm
                 </button>
               </td>
             </ng-container>
-            <ng-container matColumnDef="delete">
+            <!-- <ng-container matColumnDef="delete">
               <th mat-header-cell *matHeaderCellDef></th>
               <td mat-cell *matCellDef="let element">
                 <button mat-button color="warn" (click)="redirectToDelete(element.id)">
                   Delete
                 </button>
               </td>
-            </ng-container>
+            </ng-container> -->
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </div> 

@@ -18,6 +18,34 @@ a{
   table {
 
   }
+  .confirm{
+    background-color: #163651;
+    color: aliceblue;
+  }
+  .delete{
+    background-color: aliceblue;
+    color: black;
+    border-color: #163651;
+  }
+  table {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 500px;
+  }
+  
+  th.mat-header-cell {
+    text-align: left;
+    max-width: 70px;
+    background-color: #f4f4f5;
+    font-size: 12px;
+    font-style: bold;
+  }
+  
+  th.mat-cell {
+    max-width: 50px;
+  }
+  
 /*   
   th.mat-header-cell {
     text-align: left;

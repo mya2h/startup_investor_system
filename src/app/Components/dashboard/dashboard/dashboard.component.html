@@ -1,74 +1,85 @@
+<mat-sidenav-container class="tp-container">
+  <mat-sidenav mode="side" opened>
+    <section class="tp-section">
+      <div class="image">
+        <img src="../../assets/images/Path_200.png">
+      </div>
+    </section>
+    <div class="navmenu">
+      <a mat-list-item routerLink="/dashboard/" routerLinkActive="is-active">
+        <section class="tp-section">
+          <mat-icon>home</mat-icon><div class="word"> Home</div>
+        </section>
+      </a>
 
-<mat-sidenav-container class = "tp-container">
-    <mat-sidenav mode = "side" opened>
-       <section class = "tp-section">
-           <div class ="image">
-         <img src="../../assets/images/Path_200.png">
-     </div>
-       </section>
-       <div class ="navmenu">
-        <a   mat-list-item routerLink="/dashboard/home" routerLinkActive="is-active">
-       <section class = "tp-section">
-             <mat-icon>home</mat-icon><span> Home</span>
-       </section>
-     </a>  
-     
-     <a  mat-list-item routerLink="/dashboard/inbox" routerLinkActive="is-active">
-       <section class = "tp-section">
-             <mat-icon> mail_outline</mat-icon><span>	Inbox</span>
-       </section>
-     </a>
-     <a  mat-list-item routerLink="/dashboard/startups" routerLinkActive="is-active">
-       <section class = "tp-section">
-             <mat-icon>supervisor_account</mat-icon><span>Startups</span>
-      </section>
-     </a> 
-     <a  mat-list-item routerLink="/dashboard/explore" routerLinkActive="is-active">
-      <section class = "tp-section">
-             <mat-icon>explore</mat-icon> <span>Explore</span>
-      </section>
-     </a>  
-     </div>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <mat-toolbar class="toolbar">
-            <mat-toolbar-row>
-              <span> 
-                  <mat-icon class="small">search</mat-icon>  
-                    <mat-form-field class="inp">
-                       <input  matInput class="iny" placeholder="Search for startups and investor">  
-                </mat-form-field>
-               </span>
-               <div class="padright">
-                <a [matMenuTriggerFor]="request"> <mat-icon class="request">people</mat-icon></a> 
-                  <span class="gap"></span>
-                  <mat-icon class="new" matBadge="15" matBadgeColor="warn">notifications</mat-icon>
-                </div>
-               <span class="between"></span>
-               <button mat-button [matMenuTriggerFor]="appMenu">
-                <img class="jpg-icon"  src="../../../../assets/images/Image_1.png" 
-                    style="max-width:    70%; min-width: 70%;">
-              </button>    
-     <mat-menu #appMenu="matMenu">
-        <a routerLink="/dashboard/profile">   
-             <button mat-menu-item >
-         Profile</button>
-        </a>
-         <button mat-menu-item (click)="logservice.logout()">Logout</button>
-         <!-- app-requestdropdown -->
+      <a mat-list-item routerLink="/dashboard/inbox" routerLinkActive="is-active">
+        <section class="tp-section">
+          <mat-icon> mail_outline</mat-icon><div class="word"> Inbox</div>
+        </section>
+      </a>
+      <a mat-list-item routerLink="/dashboard/startups" routerLinkActive="is-active">
+        <section class="tp-section">
+          <mat-icon>supervisor_account</mat-icon><div class="word">Startups</div>
+        </section>
+      </a>
+      <a mat-list-item routerLink="/dashboard/explore" routerLinkActive="is-active">
+        <section class="tp-section">
+          <mat-icon>explore</mat-icon> <div class="word">Explore</div>
+        </section>
+      </a>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="toolbar">
+      <mat-toolbar-row>
+        <span>
+          <mat-icon class="small">search</mat-icon>
+          <mat-form-field class="inp">
+            <input matInput class="iny" placeholder="Search for startups and investor">
+          </mat-form-field>
+        </span>
+        <div class="padright">
+          <a [matMenuTriggerFor]="request" *ngIf="!getrole()">
+            <mat-icon class="requestico" >people</mat-icon>
+            <span class="req">{{requests}}</span>
+          </a>
+          <span class="gap"></span>
+          <a [matMenuTriggerFor]="notification">
+            <mat-icon class="new" matBadgeColor="warn">notifications</mat-icon>
+            <span class="badgen" *ngIf="getrole()">{{amount}}</span>
+            <span class="badge" *ngIf="!getrole()">{{amount}}</span>
+          </a>
+        </div>
+        <span class="between"></span>
+        <button mat-button [matMenuTriggerFor]="appMenu">
+          <img class="jpg-icon" src="../../../../assets/images/replace.jpg" style="max-width:    70%; min-width: 70%;"  width="70" height="60">
+        </button>
+        <mat-menu #appMenu="matMenu">
+          <a routerLink="/dashboard/profile">
+            <button mat-menu-item>
+              Profile</button>
+          </a>
+          <button mat-menu-item (click)="logservice.logout()">Logout</button>
+          <!-- app-requestdropdown -->
+        </mat-menu >
+        <mat-menu #request="matMenu" class="dashboard-toolbar-mat-menu-panel" yPosition="below">
+            <div class="notificationmen">
+          <app-requestdropdown></app-requestdropdown>
+        </div>
+        </mat-menu>
+        <mat-menu #notification="matMenu" class="dashboard-toolbar-mat-menu-panel" yPosition="below">
+            <div class="notificationmen">
+                <app-notificationdropdown></app-notificationdropdown>
+            </div>
         
         </mat-menu>
-        <mat-menu #request="matMenu" class="dashboard-toolbar-mat-menu-panel">
- <app-requestdropdown></app-requestdropdown>
-            </mat-menu>
-            </mat-toolbar-row>
-          </mat-toolbar>
-          <div class="changed">
-              <!-- <app-investor-profile></app-investor-profile> -->
-              <router-outlet></router-outlet> 
-          </div>
-          
-  
-     </mat-sidenav-content>
- </mat-sidenav-container>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <div class="changed">
+      <!-- <app-investor-profile></app-investor-profile> -->
+      <router-outlet></router-outlet>
+    </div>
 
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

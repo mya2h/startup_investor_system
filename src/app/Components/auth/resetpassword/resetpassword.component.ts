@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import {LoginService} from '../../../Services/login.service'
+import {MatSnackBar} from '@angular/material/snack-bar';
 import { format } from 'url';
 interface resetPass{
   reset_token:"string",
@@ -17,10 +18,12 @@ export class ResetpasswordComponent implements OnInit {
   errorMessage: string;
   successMessage: string;
   resetToken: null;
+  doesntmuch = false
   CurrentState: any;
   IsResetFormValid = true;
 
   constructor(
+    private _snackBar:MatSnackBar,
     private router: Router,
     private route: ActivatedRoute,
     private fb: FormBuilder,
@@ -38,8 +41,8 @@ export class ResetpasswordComponent implements OnInit {
     this.ResponseResetForm = new FormGroup(
       {
         resettoken: new FormControl(this.resetToken),
-        newPassword: new FormControl (['', [Validators.required, Validators.minLength(4)]]),
-        confirmPassword:new FormControl(['', [Validators.required, Validators.minLength(4)]])
+        newPassword: new FormControl ('', [Validators.required, Validators.minLength(4)]),
+        confirmPassword:new FormControl('', [Validators.required, Validators.minLength(4)])
       }
     );
   }
@@ -67,8 +70,17 @@ export class ResetpasswordComponent implements OnInit {
         password:newVal.newPassword
       }
       if(this.ResponseResetForm.valid){
+        if(newVal.confirmPassword!= newVal.password){
+         this.doesntmuch = true
+        }
         this.reset.changePassword(newrequest).subscribe(data=>{
-          console.log(data)
+          this.ResponseResetForm.reset();
+         this._snackBar.open("Password changed successfully", "", {
+          duration: 2000,
+        });
+        setTimeout(() => {
+          this.router.navigate(['/']);
+        }, 3000);
         })
       }
   }

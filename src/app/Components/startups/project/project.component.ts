@@ -3,7 +3,7 @@ import { FormControl,FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 import {ProjectService } from '../../../Services/project.service'
 import { project } from 'src/app/Model/project';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material';
 import { SuccessDialogComponent } from '../../success-dialog/success-dialog.component';
 import {ErrorService} from '../../../Services/error.service';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
@@ -29,7 +29,12 @@ export class ProjectComponent implements OnInit {
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   private dialogConfig;
   public ownerForm: FormGroup;
-  constructor(private location: Location,private project:ProjectService,private _snackBar: MatSnackBar,private errorService: ErrorService) { }
+  constructor(
+    public dialogRef: MatDialogRef<ProjectComponent>,
+    private location: Location,
+    private project:ProjectService,
+    private _snackBar: MatSnackBar,
+    private errorService: ErrorService) { }
   
   ngOnInit() {
     this.ownerForm = new FormGroup({
@@ -54,9 +59,6 @@ export class ProjectComponent implements OnInit {
     return this.ownerForm.controls[controlName].hasError(errorName);
   }
  
-  public onCancel = () => {
-    this.location.back();
-  }
   add(event: MatChipInputEvent): void {
     const input = event.input;
     const value = event.value;
@@ -79,11 +81,8 @@ export class ProjectComponent implements OnInit {
  
   public createOwner = (ownerFormValue) => {
     if (this.ownerForm.valid) {
-      const newVal = ownerFormValue.subjects.map(o=>o.name);                                                                                                                                      
-      console.log("my new val",newVal);
-      console.log(ownerFormValue.subjects.name);
-      console.log()
-     const project:project={
+      const newVal = ownerFormValue.subjects.map(o=>o.name);                                                                                                                                     
+      const project:project={
       name:ownerFormValue.name,
       sector:ownerFormValue.sectorselector,
       industry_type:ownerFormValue.industrySelector,
@@ -111,25 +110,45 @@ export class ProjectComponent implements OnInit {
 
     }
   }
-
+  public onCancel() {
+    this.dialogRef.close();
+  }
   openSnackBar() {
     this._snackBar.openFromComponent(SuccessDialogComponent, {
       duration: this.durationInSeconds * 1000,
     });
   }
+  updateProject(ownerFormValue){
+    if (this.ownerForm.valid) {
+      const newVal = ownerFormValue.subjects.map(o=>o.name);                                                                                                                                     
+      const project:project={
+      name:ownerFormValue.name,
+      sector:ownerFormValue.sectorselector,
+      industry_type:ownerFormValue.industrySelector,
+      description:ownerFormValue.description,
+      maximum_fund:ownerFormValue.funduneed,
+      current_capital:ownerFormValue.funduhave,
+      current_status:ownerFormValue.progress,
+      team_members:newVal,
+      representative_id:ownerFormValue.representative
+    }
+    this.project.createProject(project).subscribe(data=>{
+      console.log(data);
+      this.openSnackBar();
+ 
+    //we are subscribing on the [mat-dialog-close] attribute as soon as we click on the dialog button
+    },
+    (error => {
+      this.errorService.dialogConfig = { ...this.dialogConfig };
+      this.errorService.handleError(error);
+      console.log(error);
+      console.log(error.error.message.error[0].message);
+    })
+  );
+  
 
-  // openSnackBar(message: string, action: string) {
-  //   this._snackBar.open(message, action, {
-  //     duration: 2000,
-  //   });
-  // }
-//   openSnackBar(message: string, action: string, className: string) {
+    }
+  }
+  }
 
-//     this.snackBar.open(message, action, {
-//      duration: 2000,
-//      verticalPosition: 'top',
-//      horizontalPosition: 'end',
-//      panelClass: [SuccessDialogComponent],
-//    });
-// }
-}
+

@@ -7,6 +7,7 @@ import { SuccessDialogComponent } from '../../success-dialog/success-dialog.comp
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { ProjectComponent } from '../../startups/project/project.component';
 import {ProjectDetailComponent} from '../project-detail/project-detail.component';
+import {search} from '../../../Model/searchproject'
 export interface DialogData{
    id:string,
    sector:string,
@@ -33,6 +34,7 @@ export class ExploreComponent implements OnInit {
    ngOnInit() {
      console.log(this.selectedDay);
    this.getAllStartups();
+   this.explore();
  
  }
  getAllStartups(){
@@ -73,6 +75,14 @@ readMore(id,sector,description,industryType,fundNeed,capital,status){
   dialogRef.afterClosed().subscribe(result => {
     this.getAllStartups();
   });
+}
+explore(){
+  const explore:search={
+    sector:"technology"
+  }
+  this.investorProfile.exploreProject(explore).subscribe(data=>{
+    console.log("explore",data);
+  })
 }
 
 }

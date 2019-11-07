@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { startupprofile } from '../../../Model/startupprofile';
 import { StartupProfileService } from '../../../Services/startup-profile.service'
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {ErrorService} from '../../../Services/error.service';
 export interface Subject {
   name: string
 }
@@ -13,15 +15,18 @@ export interface Subject {
 export class StartupsProfileComponent implements OnInit {
   first_name: any;
   last_name: any;
-
+  private dialogConfig;
   public ownerForm: FormGroup;
-  constructor(private profile: StartupProfileService) { }
+  constructor(
+    private profile: StartupProfileService,
+     private _snackBar:MatSnackBar,private errorService:ErrorService
+     ) { }
 
   ngOnInit() {
     this.ownerForm = new FormGroup({
       first_name: new FormControl('', [Validators.maxLength(20)]),
       last_name: new FormControl('', [Validators.maxLength(20)]),
-      phone: new FormControl(''),
+      phone: new FormControl('',[Validators.minLength(7)]),
       dateOfBirth: new FormControl(new Date()),
       address: new FormControl('', [Validators.maxLength(20)]),
       education: new FormControl(''),
@@ -88,8 +93,17 @@ export class StartupsProfileComponent implements OnInit {
       profile: ownerFormValue.profile
     }
     this.profile.createProfile(pro).subscribe(data => {
-      console.log(data);
+      this._snackBar.open("Profile successfully updated", "", {
+        duration: 2000,
+      });
+    },
+    (error => {
+      this.errorService.dialogConfig = { ...this.dialogConfig };
+      this.errorService.handleError(error);
+      console.log(error);
+      console.log(error.error.message.message);
     })
+    )
   }
 
 

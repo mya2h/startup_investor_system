@@ -28,14 +28,7 @@ export class ErrorService {
 
   private handle500Error = (error: HttpErrorResponse) => {
     this.createErrorMessage(error);
-
-  // openSnackBar(message: string, action: string) {
-  //   this._snackBar.open(message, action, {
-  //     duration: 2000,
-  //   });
-  // }
     this.dialogConfig.data = { 'errorMessage': this.errorMessage };
-    
     this.dialog.open(ErrorDialogComponent, this.dialogConfig);
   }
 

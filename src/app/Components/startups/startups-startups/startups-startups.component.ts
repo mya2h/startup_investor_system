@@ -7,6 +7,7 @@ import { from } from 'rxjs';
 import { project } from '../../../Model/project'
 import { DataSource } from '@angular/cdk/table';
 import { ProjectComponent } from '../project/project.component';
+import {DeleteprojectComponent} from '../deleteproject/deleteproject.component'
 export interface DialogData {
   animal: string;
   name: string;
@@ -50,7 +51,16 @@ export class StartupsStartupsComponent implements OnInit, AfterViewInit {
 
   }
 
-  public redirectToDelete = (id: string) => {
+  public redirectToDelete(id){
+    this.dialog.open(DeleteprojectComponent,{
+      width:'500px',
+      data:{
+        id:id
+      }
+    }).afterClosed()
+    .subscribe(result=>{
+      this.getAllProjects()
+    })
 
   }
   public doFilter = (value: string) => {
@@ -60,7 +70,7 @@ export class StartupsStartupsComponent implements OnInit, AfterViewInit {
     const dialogRef = this.dialog.open(ViewprojectComponent, {
       width: '250px',
       data: this.dataSource.data
-    });
+  });
 
     dialogRef.afterClosed().subscribe(result => {
 
@@ -72,9 +82,10 @@ export class StartupsStartupsComponent implements OnInit, AfterViewInit {
       data: this.dataSource.data
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-
-    });
+    dialogRef.afterClosed()
+    .subscribe(result=>{
+      this.getAllProjects()
+    })
   }
 }
 

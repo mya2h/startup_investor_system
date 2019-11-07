@@ -39,6 +39,33 @@ mat-card{
      height: 100px;
     
  }
+ .addmember{
+    margin-top: 7px;    
+    width: 100px;
+    height: 40px;
+    border: 1px solid #163651;
+    background-color:rgb(56, 56, 55);
+    color: #ffffff;
+    border-radius: 90%;
+ }
+ .gap{
+     padding-left: 40px;
+ }
+ /* a :link .download{
+     text-decoration: none;
+ } */
+ .download{
+     width: 160px;
+     padding-left: 20px;
+     padding-top: 10px;
+     height: 30px;
+     border-radius: 5px;
+     background-color: #525c64;
+     color: #ffffff;
+ }
+ .download :link{
+     text-decoration: none;
+ }
  /* mat-list mat-list-item.allprogress{
     padding-top: 20%;
     height: 300px;

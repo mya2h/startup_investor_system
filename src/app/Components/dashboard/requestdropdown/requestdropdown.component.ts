@@ -9,12 +9,13 @@ import {verifyInvestor} from '../../../Model/verifyinvestor';
 })
 export class RequestdropdownComponent implements OnInit {
   public dataSource = new MatTableDataSource<Element>();
-  public displayedColumns = ['investment_type', 'confirm', 'delete'];
+  public displayedColumns = ['investment_type', 'confirm'];
    constructor(private request:StartupProfileService) { }
  
    ngOnInit() {
      this.request.getUnVerifiedStartups().subscribe(data=>{ 
        const smallRequest = []
+       console.log("u should display",data)
        smallRequest.push(data.message.slice(0,4))
        console.log("my data message",smallRequest);
        this.dataSource = new MatTableDataSource < Element > (data.message.slice(0,4));
@@ -22,6 +23,7 @@ export class RequestdropdownComponent implements OnInit {
      })
     
    }
+  
    confirmUser(startup,investor){
      const verify:verifyInvestor={
        startup_id:startup,
@@ -30,7 +32,14 @@ export class RequestdropdownComponent implements OnInit {
      console.log(verify);
      this.request.verifyUser(verify).subscribe(data=>{
        console.log(data);
- 
+       this.request.getUnVerifiedStartups().subscribe(data=>{ 
+        const smallRequest = []
+        console.log("u should display",data)
+        smallRequest.push(data.message.slice(0,4))
+        console.log("my data message",smallRequest);
+        this.dataSource = new MatTableDataSource < Element > (data.message.slice(0,4));
+        console.log("my data source",this.dataSource.data);
+      })
      })
    }
  

@@ -1,0 +1,14 @@
+<div class="confirm">
+<div class="header">
+        <button mat-dialog-close mat-icon-button>
+          <mat-icon>close</mat-icon>
+        </button>
+        <h1 mat-dialog-title>Are u sure u want to delete kalkidan from project</h1>
+      </div>
+      <mat-dialog-content>
+        <p [innerHTML]="data.id"></p>
+      </mat-dialog-content>
+      <mat-dialog-actions>
+        <button mat-button (click)="delete(data.id)" color="primary">Delete</button>
+      </mat-dialog-actions>
+  </div>    

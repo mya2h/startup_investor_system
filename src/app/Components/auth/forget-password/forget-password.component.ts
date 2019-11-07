@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {LoginService} from '../../../Services/login.service';
 import { FormControl,FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
+import {MatSnackBar} from '@angular/material/snack-bar';
 interface reset{
   email:string
 }
@@ -12,7 +13,8 @@ interface reset{
 })
 export class ForgetPasswordComponent implements OnInit {
   public resetPassword: FormGroup;
-  constructor(private reset:LoginService) { }
+  errorMessage: string;
+  constructor(private reset:LoginService,private _snackBar:MatSnackBar) { }
 
   ngOnInit() {
     this.resetPassword = new FormGroup({
@@ -26,7 +28,16 @@ export class ForgetPasswordComponent implements OnInit {
      }
     this.reset.forgetPassword(user).subscribe(data=>{
       console.log(data);
-    })
+      this._snackBar.open("Reset password link send to email sucessfully.", "", {
+        duration: 2000,
+      });
+    },err => {
+       console.log(err);
+      if (err.error.message) {
+        this.errorMessage = err.error.message.error;
+      }
+    }
+    )
    }
  }
 }

@@ -6,7 +6,10 @@
     <div class="about">
         <h2>{{dataMessage[0].name}}</h2>
         <p>{{dataMessage[0].description}}</p>
-        <button class="progress" mat-button (click)="addProgress(dataMessage[0]._id)">Progress report</button>
+        <div class="progadd" *ngIf="!getrole()">
+            <button class="progress" mat-button (click)="addProgress(dataMessage[0]._id)">Progress report</button>
+        </div>
+       
         </div>
         <mat-card>
           <mat-horizontal-stepper >
@@ -17,25 +20,45 @@
                  <!-- {{dataMessage[1].message.title}} -->
                 <mat-list role="list" *ngFor="let progress of dataMessage[1]">
                     <mat-list-item role="listitem">
-                      Progress added date
+                     Date
+                     <br>
+                
                         {{progress.created_at}}
-                          title
+                      
+                         <br>
+                   
                       {{progress.title}}
-                      description
+                  
+                      <br>
                       {{progress.description}}
+                      <span class="gap"></span>
                       <!-- <a href="{{progress.report_file}}">Download the PDF</a>
                       <a href="'progress.report_file'">Download the PDF</a> -->
-                      <a href={{progress.report_file}}>Download the PDF</a>
+                      <a href={{progress.report_file}} class="download">Download the PDF</a>
                   
                     </mat-list-item>
                   </mat-list>
                 </div>  
               </mat-step>
             <mat-step [stepControl]="secondFormGroup">
-                <ng-template matStepLabel><span>20</span><br>Investors</ng-template>
+              <div *ngIf="investor.length!=0">
+                <ng-template matStepLabel><span>{{investor[0].length}}</span><br>Investors</ng-template>
+                <mat-list role="list" *ngFor="let member of investor[0]">
+                    <mat-list-item role="listitem" >
+                        <div class="separate">
+                    <img src="../../../../assets//images/Image_1.png">
+                    <br>
+                    {{member.investor_id.first_name}} {{member.investor_id.last_name}}
+                    <br>
+                     {{member.investor_id.email}}
+                        </div>
+                    </mat-list-item>
+                  </mat-list>
+                </div>
             </mat-step>
             <mat-step>
               <ng-template matStepLabel>{{dataMessage[0].team_members.length}}<br>Team</ng-template>
+              <button class="addmember" mat-button (click)="addTeam(dataMessage[0]._id)"><mat-icon>add</mat-icon></button>
               <mat-list role="list" *ngFor="let member of dataMessage[0].team_members">
                   <mat-list-item role="listitem" >
                       <div class="separate">
@@ -44,6 +67,7 @@
                   {{member.first_name}} {{member.last_name}}
                   <br>
                    {{member.email}}
+                  <button (click)="remove(dataMessage[0]._id,member.email)"><mat-icon>delete</mat-icon></button> 
                       </div>
                   </mat-list-item>
                 </mat-list>

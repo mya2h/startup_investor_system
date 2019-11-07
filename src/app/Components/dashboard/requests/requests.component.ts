@@ -19,7 +19,7 @@ export class RequestsComponent implements OnInit {
   ngOnInit() {
     this.request.getUnVerifiedStartups().subscribe(data=>{
       this.dataSource = new MatTableDataSource < Element > (data.message);
-      console.log(this.dataSource.data);
+      console.log("this is data source",this.dataSource.data);
     })
    
   }

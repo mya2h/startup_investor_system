@@ -22,19 +22,23 @@ import {ForgetPasswordComponent} from '../app/Components/auth/forget-password/fo
 import {ResetpasswordComponent} from '../app/Components/auth/resetpassword/resetpassword.component'
 import {ViewprojectComponent} from '../app/Components/startups/viewproject/viewproject.component'
 import {RequestsComponent} from '../app/Components/dashboard/requests/requests.component'
-
+import {InvestedProjectDetailComponent} from '../app/Components/Investor/invested-project-detail/invested-project-detail.component'
+import {NotificationComponent} from '../app/Components/dashboard/notification/notification.component'
 const routes: Routes = [
   { path: '', component: LoginComponent, canActivate: [LoginGuard] },
   {
     path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard],
     children: [
-      { path: 'home', component: HomeComponent },
+      { path: '', component: HomeComponent },
       { path: 'inbox', component: InboxComponent },
       { path: 'startups', component: StartupallComponent },
       { path: 'explore', component: ExploreallComponent },
       { path: 'profile', component: ProfileComponent },
       { path:'requests',component:RequestsComponent},
+      { path:'notfication',component:NotificationComponent},
       {path:'startups/projectDetail/:id',component:ViewprojectComponent},
+      {path:'startups/invested/:id',component:InvestedProjectDetailComponent},
+
     ]
   },
 

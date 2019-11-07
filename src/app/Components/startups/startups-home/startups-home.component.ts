@@ -18,4 +18,14 @@ export class StartupsHomeComponent implements OnInit {
     [55, 25, 0]
   ];
   doughnutChartType: ChartType = 'doughnut';
+  // doughnutChartOptions:any = 
+  // { cutoutPercentage: 55, 
+  //   responsive: true, legend:
+  //    { display: true,
+  //     position: 'bottom',
+  //      fullWidth: false, 
+  //      labels:{ padding: 15, 
+  //       fontSize: 10,
+  //        usePointStyle: 
+  //        true, fontColor: 'rgb(143, 142, 142)', boxWidth: 10, } }, }
 }

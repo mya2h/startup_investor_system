@@ -28,7 +28,7 @@
       <ng-container matColumnDef="confirm">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element">
-          <button mat-button color="accent" (click)="confirmUser(element.startup_id._id,element.investor_id._id)">
+          <button mat-button class="confirm" (click)="confirmUser(element.startup_id._id,element.investor_id._id)">
              Confirm
           </button>
         </td>
@@ -36,7 +36,7 @@
       <ng-container matColumnDef="delete">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element">
-          <button mat-button color="warn" (click)="redirectToDelete(element.id)">
+          <button mat-button class="delete" (click)="redirectToDelete(element.id)">
             Delete
           </button>
         </td>

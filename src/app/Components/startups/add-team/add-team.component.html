@@ -1,0 +1,21 @@
+<mat-card>
+  <div *ngIf="errorMessage">
+     {{errorMessage}}
+  </div>
+    <form  [formGroup]="ownerForm" autocomplete="off" novalidate (ngSubmit)="createOwner(ownerForm.value,data.id)">
+            <mat-form-field class="multiple-items">
+                    <mat-chip-list #chipList formControlName="team">
+                      <mat-chip *ngFor="let subjectsArray of memberArray" [selectable]="selectable" [removable]="removable"
+                        (removed)="remove(subjectsArray)">
+                        {{subjectsArray.name}}
+                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                      </mat-chip>
+                      <input placeholder="Add team members" [matChipInputFor]="chipList"
+                        [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                        (matChipInputTokenEnd)="add($event)">
+                    </mat-chip-list>
+                  </mat-form-field>  
+                  <button mat-raised-button color="primary" [disabled]="!ownerForm.valid">Add</button> 
+    </form>
+       <!-- {{}} -->
+</mat-card>
