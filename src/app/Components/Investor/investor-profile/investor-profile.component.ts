@@ -47,7 +47,7 @@ export class InvestorProfileComponent implements OnInit {
     checked: false
   }
   ];
-  //  investmentHaveMade = ['Grant', 'Dept', 'Revenue Sharing','Equity','Convertible note','Lease financing'];
+  
   investmentWant = ['Grant', 'Dept', 'Revenue Sharing', 'Equity', 'Convertible note', 'Lease financing'];
   startupStage = ["Idea stage", "Established track record", "Prototype stage(pre-revenue)", "Post-revenue with traction"]
   haveMade: ICheckBoxItem[] = [];

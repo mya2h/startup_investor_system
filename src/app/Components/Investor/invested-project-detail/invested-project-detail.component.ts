@@ -38,8 +38,6 @@ export class InvestedProjectDetailComponent implements OnInit {
       this.dataMessage.push(data.message['investors']);
       console.log(this.dataMessage);
     })
-    // console.log("i got my id",this.id)
-    // c
   }
 
 }

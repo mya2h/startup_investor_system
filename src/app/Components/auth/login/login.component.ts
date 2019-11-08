@@ -49,12 +49,9 @@ export class LoginComponent implements OnInit {
 
 
  },(err => {
-  // this.errorService.dialogConfig = { ...this.dialogConfig };
-  // this.errorService.handleError(error);
   if (err.error.message) {
     this.errorMessage = err.error.message;
   }
-  // console.log(error.error.message.error[0].message);
 })
  );
   }

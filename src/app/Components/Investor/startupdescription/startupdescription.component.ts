@@ -25,10 +25,7 @@ export class StartupdescriptionComponent implements OnInit {
     this.detail.getProjectDetail(this.id).subscribe(data=>{
       console.log("my data",data);
     })
-    // this.detail.getSingleProject(this.id).subscribe(data=>{
-    //   this.dataMessage.push(data.message['startup']);
-    //   this.dataMessage.push(data.message['all_progress']);
-    // })
+
     console.log("my message");
   }
 }

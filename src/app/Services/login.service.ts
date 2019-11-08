@@ -31,7 +31,7 @@ export class LoginService {
   forgetPassword(email:Email){
     const reset = JSON.stringify(email);
     return this.http.post(`${this.apiURL}/users/reset-password`,reset)
-    // /users/reset-password 
+
   }
   changePassword(newpass:newPassword){
     const reset = JSON.stringify(newpass);

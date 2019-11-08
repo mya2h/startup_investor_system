@@ -46,17 +46,13 @@ export class AddProgressComponent implements OnInit {
         duration: 2000,
       });
     },(error => {
-      // this.errorService.dialogConfig = { ...this.dialogConfig };
-      // this.errorService.handleError(error);
       console.log(error);
-      // console.log(error.error.message.message);
     })
     )
     
   }
   handleFileInput(files: FileList) {
     this.fileToUpload = files.item(0);
-    // console.log(this.fileToUpload);
 }
 
 

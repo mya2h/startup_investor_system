@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit {
   constructor(private logservice:LoginService) { }
 
   ngOnInit() {
-    // console.log(this.getrole());
     this.getrole();
     
   }
