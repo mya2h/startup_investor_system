@@ -31,12 +31,13 @@ export class InvestedProjectDetailComponent implements OnInit {
         this.id=param['id']
       }
     );
-    this.detail.singleprojectInvestedOn(this.id).subscribe(data=>{
-      console.log(data);
-      // this.dataMessage.push(data.message['startup']);
-      // this.dataMessage.push(data.message['all_progress']);
+    this.detail.getProjectDetail(this.id).subscribe(data=>{
+      console.log("my data",data);
+      this.dataMessage.push(data.message['startup']);
+      this.dataMessage.push(data.message['all_progress']);
+      this.dataMessage.push(data.message['investors']);
+      console.log(this.dataMessage);
     })
-    console.log("my message",this.dataMessage);
     // console.log("i got my id",this.id)
     // c
   }

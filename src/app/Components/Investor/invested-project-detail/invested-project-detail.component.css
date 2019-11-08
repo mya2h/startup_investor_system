@@ -1,0 +1,75 @@
+h1{
+    color: black;
+}
+mat-card{
+    margin-top: 5%;
+    margin-left:10%;
+    height: 600px;
+    width:70%;
+    margin-bottom: 10px;
+    /* height:700px; */
+
+}
+.about{
+    padding-top: 30px
+}
+.about h2{
+    color: rgb(87, 86, 86);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+.progress{
+    margin-top: 7px;    
+    width: 185px;
+    height: 40px;
+    border: 1px solid #163651;
+    background-color: #163651;
+    color: #ffffff;
+    }
+ p{
+     width: 80%;
+     color: rgb(49, 48, 48)
+ }   
+ .about{
+     margin-left: 30%;
+     margin-top:8px;
+ }
+ mat-list {
+     margin-top: 30px;
+     padding-top: 40px;
+     height: 100px;
+    
+ }
+ .addmember{
+    margin-top: 7px;    
+    width: 100px;
+    height: 40px;
+    border: 1px solid #163651;
+    background-color:rgb(56, 56, 55);
+    color: #ffffff;
+    border-radius: 90%;
+ }
+ .gap{
+     padding-left: 40px;
+ }
+ /* a :link .download{
+     text-decoration: none;
+ } */
+ .download{
+     width: 160px;
+     padding-left: 20px;
+     padding-top: 10px;
+     height: 30px;
+     border-radius: 5px;
+     background-color: #525c64;
+     color: #ffffff;
+ }
+ .download :link{
+     text-decoration: none;
+ }
+ /* mat-list mat-list-item.allprogress{
+    padding-top: 20%;
+    height: 300px;
+} */
+/* mat-item-list{
+    height:400px;
+} */

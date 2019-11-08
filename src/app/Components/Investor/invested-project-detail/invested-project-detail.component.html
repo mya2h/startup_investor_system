@@ -31,11 +31,21 @@
                       </div>  
                     </mat-step>
                   <mat-step [stepControl]="secondFormGroup">
-                      <ng-template matStepLabel><span>20</span><br>Investors</ng-template>
+                      <ng-template matStepLabel><span>{{dataMessage[2].length}}</span><br>Investors</ng-template>
+                      <mat-list role="list" *ngFor="let member of dataMessage[2]">
+                        <mat-list-item role="listitem" >
+                            <div class="separate">
+                        <img src="../../../../assets//images/Image_1.png">
+                        <br>
+                        {{member.investor_id.first_name}} {{member.investor_id.last_name}}
+                        <br>
+                         {{member.investor_id.email}}
+                            </div>
+                        </mat-list-item>
+                      </mat-list>
                   </mat-step>
                   <mat-step>
                     <ng-template matStepLabel>{{dataMessage[0].team_members.length}}<br>Team</ng-template>
-                    <button class="addmember" mat-button (click)="addTeam(dataMessage[0]._id)"><mat-icon>add</mat-icon></button>
                     <mat-list role="list" *ngFor="let member of dataMessage[0].team_members">
                         <mat-list-item role="listitem" >
                             <div class="separate">
@@ -44,7 +54,6 @@
                         {{member.first_name}} {{member.last_name}}
                         <br>
                          {{member.email}}
-                        <button (click)="remove(dataMessage[0]._id,member.email)"><mat-icon>delete</mat-icon></button> 
                             </div>
                         </mat-list-item>
                       </mat-list>

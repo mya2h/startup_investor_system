@@ -39,4 +39,7 @@ export class InvestorProfileService {
   exploreProject(project:search): Observable<any>{
     return this.http.post(`${this.apiURL}/startup-project/search`,project)
   }
+  getProjectDetail(id:string):Observable<any>{
+    return this.http.get(`${this.apiURL}/startup-project/investor/${id}`)
+  }
 }

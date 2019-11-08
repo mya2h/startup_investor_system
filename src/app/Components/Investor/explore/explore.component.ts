@@ -32,28 +32,9 @@ export class ExploreComponent implements OnInit {
   allProjects = []
    constructor(private investorProfile:InvestorProfileService,private dialog: MatDialog) { }
    ngOnInit() {
-     console.log(this.selectedDay);
-   this.getAllStartups();
    this.explore();
+   this.exploreAgriculture();
  
- }
- getAllStartups(){
-  this.investorProfile.getStartupProject().subscribe(data=>{
-      
-    data.map(res=>{
-      // this.allProjects.push(res);
-      this.allProjects = Array.from(Object.keys(data), k=>data[k]);
-      // console.log(this.allProjects);
-     if(res.sector=="technology"){
-      this.technology.push(res);  
-     }
-     else if(res.sector="agriculture"){
-       this.agriculture.push(res);
-     }
-     console.log(this.agriculture);
-    })
-  })
-
  }
  changeClient(value) {
   this.selectedDay=value;
@@ -73,7 +54,7 @@ readMore(id,sector,description,industryType,fundNeed,capital,status){
       status:status}
   });
   dialogRef.afterClosed().subscribe(result => {
-    this.getAllStartups();
+    this.explore();
   });
 }
 explore(){
@@ -82,7 +63,22 @@ explore(){
   }
   this.investorProfile.exploreProject(explore).subscribe(data=>{
     console.log("explore",data);
+    this.technology = data; 
+    data.map(res=>{
+      this.allProjects.push(res);
+    })
   })
 }
-
+exploreAgriculture(){
+  const explore:search={
+    sector:"agriculture"
+  }
+  this.investorProfile.exploreProject(explore).subscribe(data=>{
+    console.log("explore",data);
+    this.agriculture = data; 
+    data.map(res=>{
+      this.allProjects.push(res);
+    })
+  })
+}
 }
