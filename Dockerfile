@@ -9,7 +9,7 @@ ENV PATH /app/node_modules/.bin:$PATH
 # install and cache app dependencies
 COPY package.json /app
 RUN npm install
-RUN npm install -g @angular/cli@6.10.2
+#RUN npm install -g @angular/cli@6.10.2
 
 copy . /app
 
