@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: investup-frontend
+spec:
+  ports:
+  - name: http
+    port: 3000
+    targetPort: 3000
+    protocol: TCP
+  selector:
+    app: investup-web
+    role: admin
+  type: LoadBalancer

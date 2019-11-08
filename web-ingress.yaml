@@ -1,0 +1,76 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: investup-ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: startup-investor-frontend
+    ingress.kubernetes.io/ssl-redirect: "true"
+spec:
+  rules:
+  - host: "startup-investor.et5ek.gebeya.co"
+    http:
+      paths:
+      - path: /users/*
+        backend:
+          serviceName: investup-frontend
+          servicePort: 3000
+      - path: /users
+        backend:
+          serviceName: investup-frontend
+          servicePort: 3000
+      - path: /investors/*
+        backend:
+          serviceName: investup-frontend
+          servicePort: 3000
+      - path: /investors
+        backend:
+          serviceName: investup-frontend
+          servicePort: 3000
+      - path: /investors-company/*
+        backend:
+          serviceName: investup-frontend
+          servicePort: 3000
+      - path: /investors-company
+        backend:
+          serviceName: investup-frontend
+          servicePort: 3000
+      - path: /startup-project/*
+        backend:
+          serviceName: investup-frontend
+          servicePort: 3000
+      - path: /startup-project
+        backend:
+          serviceName: investup-frontend
+          servicePort: 3000
+      - path: /startup-profile/*
+        backend:
+          serviceName: investup-frontend
+          servicePort: 3000
+      - path: /startup-profile
+        backend:
+          serviceName: investup-frontend
+          servicePort: 3000
+      - path: /startup-investors/*
+        backend:
+          serviceName: investup-frontend
+          servicePort: 3000
+      - path: /startup-investors
+        backend:
+          serviceName: investup-frontende
+          servicePort: 3000
+      - path: /startup-progress/*
+        backend:
+          serviceName: investup-frontend
+          servicePort: 3000
+      - path: /startup-progress
+        backend:
+          serviceName: investup-frontend
+          servicePort: 3000
+      - path: /notification/*
+        backend:
+          serviceName: investup-frontend
+          servicePort: 3000
+      - path: /notification/
+        backend:
+          serviceName: investup-frontend
+          servicePort: 3000
